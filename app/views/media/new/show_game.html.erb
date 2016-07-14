@@ -1,0 +1,84 @@
+<% content_for :head do %>
+  <script type="application/javascript" src="https://content.jwplatform.com/libraries/B2tmYadP.js"></script>
+<% end %>
+
+<% if current_user.blank? %>
+  <span class="is-guest-user"></span>
+<% end %>
+
+      <div id="cp-main-content">
+        <section class="cp-blog-section pd-tb60">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-12">
+                <!--Video Detail Outer Start-->
+                <div class="cp-video-detail-outer">
+                  <div class="cp-video-outer2" style="background:#fff">
+                    <div class="wrapper" style="display:inline-block;margin:0 auto;">
+                      <%= @media.embedded_code.html_safe %>
+                    </div>
+                  </div>
+                  <div class="cp-text-holder">
+                    <div class="cp-top">
+                      <h4><%= @media.title %></h4>
+                    </div>
+                    <div class="cp-watch-holer mb-0">
+                      <ul class="cp-watch-listed">
+                        <li>
+                          <%= @media.description %>
+                        </li>
+                      </ul>
+                      <div class="cp-viewer-outer">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><i class="fa fa-star-half"></i> 
+                      <br /><a href="#">Based on 109 Reviews</a>
+                                            </div>
+                                            
+                    </div>
+                    
+                    <%= render :partial => "media/new/related_items", :locals => {:title => 'Related Games'} %>
+
+                    <!--Comments Holder Start-->
+                    <article class="cp-comments-holder">
+                      <div id="disqus_thread"></div>
+                      <script>
+                        var disqus_config = function () {
+                          this.page.url = '<%= "http://www.n2me.tv" + request.original_fullpath %>';
+                          this.page.identifier = '<%= @media.number %>';
+                        };
+                        
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                          var d = document, s = d.createElement('script');
+                          
+                          s.src = '//n2metv.disqus.com/embed.js';
+                          
+                          s.setAttribute('data-timestamp', +new Date());
+                          (d.head || d.body).appendChild(s);
+                        })();
+                      </script>
+                      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    </article><!--Comments Holder End-->
+                </div>
+                  <div class="cp-show-more-outer">
+                    <a href="#">Show More</a>
+                  </div>
+              </div><!--Video Detail Outer End-->
+
+            </div>
+              
+
+                </aside>
+          </div>
+            </div>
+          </div>
+        </section>
+</div><!--Main Content End-->
+<%= render 'media/purchase_modal' %>
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function(e){
+      var slider = new Slider()
+    });
+  </script>
+<% end %>
+
+      

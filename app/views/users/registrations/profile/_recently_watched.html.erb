@@ -1,0 +1,33 @@
+<div class="list uk-active">
+  <% current_user.recently_viewed_media.in_groups_of(4).each do |group| %>
+    <div class="row">
+      <% group.compact.each do |m| %>
+        <% m = m.becomes(Game) if m.is_a_game %>
+        <div class="item col-sm-3"> 
+          <!-- Video Item Start-->
+          <div class="cp-video-item">
+            <figure class="cp-thumb">
+              <% if m.thumbnail_url.present? %>
+                <img alt="" src="<%= m.thumbnail_url %>">
+              <% else %>
+                <img src="<%= asset_path('movie-placeholder.jpg') %>') %>">
+              <% end %>
+              <figcaption class="cp-caption">
+                <a href="/media/<%= m.number %>" class="play-video">Play</a>
+              </figcaption>
+            </figure>
+            <div class="cp-text">
+              <h4><a href="/media/<%= m.number %>"><%= m.title %></a></h4>
+              <!-- <ul class="cp-meta-list">
+                <li>Live Feed EST</li>
+                <li>Languages:<span>English | Espanol | French</span></li>
+              </ul> -->
+            </div>
+          </div>
+          <!-- Video Item End--> 
+        </div>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
+</div>

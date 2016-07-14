@@ -1,0 +1,116 @@
+- content_for :head do
+  = stylesheet_link_tag('application')
+  css:
+    label {
+      font-weight: normal;
+    }
+= render '/layouts/messages'
+= form_for @order do |f|
+  = f.fields_for :credit_card, @order.credit_card do |cc|
+    .md-card.col-sm-10.col-sm-offset-1
+      .md-card-content
+        h3.heading_a Checkout
+        = image_tag('credit_cards.png', style: 'height: 30px; margin:10px 0;')
+        .uk-grid data-uk-grid-margin=""
+          .uk-width-medium-1-3
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-credit-card
+                label Card Number
+                = cc.text_field :card_number, class: 'md-input', required: true
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-black-tie
+                label Name On Card
+                = cc.text_field :card_name, class: 'md-input', required: true
+            .uk-form-row
+              .uk-grid data-uk-grid-margin=""
+                .uk-width-medium-1-2
+                  label Expiration Month
+                  select data-md-selectize='' name='order[credit_card][expiration_month]' required='required'
+                    option value="" 
+                    - for i in (1..12).map{|m| m.to_s.rjust(2, '0')}
+                      option value="#{i}"
+                        = i
+                .uk-width-medium-1-2
+                  label Expiration Year
+                  select data-md-selectize='' name='order[credit_card][expiration_year]' required='required'
+                    option value=""
+                    - for i in 2016..2020
+                      option value="#{i}"
+                        = i
+            .uk-form-row
+              select data-md-selectize='' name='order[credit_card][card_type]' required='required'
+                option value="" Card Type
+                - for i in %w(Visa MasterCard)
+                  option value="#{i}"
+                    = i
+
+          .uk-width-medium-1-3
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-map-o
+                label State/Province
+                = cc.text_field :region_code, class: 'md-input', required: true
+
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-map-pin
+                label Postal Code
+                = cc.text_field :postal_code, class: 'md-input', required: true
+
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-globe
+                label Country Code
+                = cc.text_field :country_code, class: 'md-input', required: true
+
+          .uk-width-medium-1-3
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-map-signs
+                label Address 1
+                = cc.text_field :address_line1, class: 'md-input', required: true
+
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-map-signs
+                label Address 2
+                = cc.text_field :address_line2, class: 'md-input'
+
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-industry
+                label City
+                = cc.text_field :city, class: 'md-input', required: true
+                   
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-user
+                label Full Name
+                = cc.text_field :full_name, class: 'md-input', required: true
+
+            .uk-form-row
+              .uk-input-group
+                .uk-input-group-addon
+                  i.uk-input-group-icon.uk-icon-phone
+                label Phone
+                = cc.text_field :phone_number, class: 'md-input', required: true
+
+          .uk-form-row
+            .uk-form-row
+              button.md-btn type="submit"
+                | checkout  
+                i.uk-icon-angle-double-right
+                
+- content_for :javascript do
+  = javascript_include_tag :application

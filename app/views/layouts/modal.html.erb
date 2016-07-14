@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta charset="UTF-8" />
+     <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+     <meta content="no" name="msapplication-tap-highlight" />
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <%= csrf_meta_tags %>
+     <title>N2me</title>
+     <link href='//fonts.googleapis.com/css?family=Ubuntu:100,400,700' rel='stylesheet' type='text/css'>
+     <%= content_for(:head) if content_for? :head %>
+     <%= stylesheet_link_tag 'new_layout', media: 'all' %>
+     
+     <%= javascript_include_tag(:new_layout) unless @skip_javascript %>
+  </head>
+  <body>
+    <%= yield %>
+    <% if content_for? :javascript %>
+      <%= content_for :javascript %>
+    <% end %>
+    <script type="text/javascript">
+      $(document).ready(function(e){
+        setTimeout(function(){
+          var html = '<div class="container text-center" style="padding-top: 150px">'
+          <% if current_user %>
+            html +=    '<a href="#" class="signup btn btn-danger"> Subscribe Now </a>'
+          <% else %>
+            html +=    '<a href="#" class="signup btn btn-danger"> Sign Up Now </a>'
+          <% end %>
+          html +=    '</div>'
+          $(document.body).html(html)
+          $('a.signup').click(function(){
+            window.parent.location.href= "<%= current_user ? '/products' : '/users/sign_up' %>";
+          })
+        }, 30000)
+      })
+    </script>
+  </body>
+</html>

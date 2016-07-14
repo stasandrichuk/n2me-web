@@ -1,0 +1,203 @@
+<!-- Hero -->
+<section class="hero-fullscreen hero-video overlay">   
+    
+    <video youtube-video-id="OWxZICOANI0" id="vossen-youtube"></video>
+    
+    <div class="hero-container">
+       <div class="hero-content text-center">   
+            
+            <div class="col-sm-11 mr-auto text-center">
+                <h1 class="large white">Live Streaming Events</h1>
+                <hr class="separator">
+                <h5 class="subheading white">Live MMA Events | Boxing Matches | Music Festivals | Concerts<br /> | Powered by SuperCloud&#8482; |</h5>
+            </div> 
+            
+            
+        </div>
+    </div>   
+    
+</section>
+<!-- End Hero --> 
+
+<!-- Portfolio -->
+<div>
+    <div class="container">
+        <div class="row" style="margin-top:-25vh">   
+            <div class="app-gallery cbp" id="js-grid-slider"> 
+              <% @events.each do |event| %>
+                <% image_url = (event.thumbnail_url.present? ? event.thumbnail_url : asset_path('movie-placeholder.jpg') ) %>
+                <div class="cbp-item">
+                    <a href="<%= media_path(event.number) %>" class=" cbp-caption">
+                        <div class="cbp-caption-defaultWrap">
+                          <img alt="" src="<%= image_url %>">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignCenter">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title"><i class="icon-magnifying-glass size-1x"></i></div> 
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              <% end %>
+            </div>   
+        </div>
+    </div>
+</div>
+<!-- End Portfolio --> 
+<!-- Countdown -->
+<section class="pt20 pb20">
+    <div class="container"> 
+        <div class="row pt50 pb20">      
+
+            <div class="col-sm-12 text-center">
+                <h5 class="subheading">Live Streaming: Festivals | Concerts | Boxing | MMA</h5>
+                <h1>Our Next <strong>LIVE EVENT</strong> Begins in:</h1> 
+                <hr class="separator">
+                <div data-date="August 11, 2016 12:00:00" id="countdown-timer">
+                    <div><h2 id="months"></h2><h6>Months</h6></div> 
+                    <div><h2 id="days"></h2><h6>Days</h6></div> 
+                    <div><h2 id="hours"></h2><h6>Hours</h6></div> 
+                    <div><h2 id="minutes"></h2><h6>Minutes</h6></div> 
+                    <div><h2 id="seconds"></h2><h6>Seconds</h6></div>
+                </div>
+                
+            </div> 
+
+        </div>
+    </div>
+</section>
+<!-- End Countdown -->
+<!-- Pricing -->
+<section class="pt20 pb20">
+    <div class="container">
+        <div class="vertical-align">
+
+            <div class="col-md-6">
+                <h2>Live Event Pricing</h2> 
+                <hr class="separator left">
+                <p class="mt30">Get access to live streaming events from around the world. Watch live boxing events, live concerts, MMA fights, and live festivals.</p>
+              <p>Watch today's most popular events in the comfort of your home, or anywhere you have an internet connection. Get full featured access to behind the scenes interviews, & more! Buy events on demand or subscribe to our full featured Season Pass. *Pulse Access gives you on demand access to the greatest interviews, highlights and concert library available, Anywhere!</p>
+            </div> 
+            
+            <div class="col-md-6">
+                <div class="col-md-6 price-table event-price">
+                    <div class="price-box"> 
+                        <h4>One Day Pass</h4>
+                        <h2 class="price-price">
+                            <span>$39</span>
+                        </h2>
+                        <div class="price-features">  
+                            <h5>Per Event</h5>
+                            <p>Boxing</p> 
+                            <p>Festivals</p>
+                            <p>MMA Events</p>
+                            <p>Concerts</p> 
+                        </div>
+                        <a href="<%= products_path(:product_ids => 53) %>" class="btn btn-primary btn-md btn-appear"><span>Purchase Ticket <i class="fa fa-arrow-right"></i></span></a>
+                    </div>
+                </div>  
+                <div class="col-md-6 price-table-featured event-price">
+                    <div class="price-box"> 
+                        <h4>Season Pass</h4>
+                        <h2 class="price-price">
+                            <span>$249</span>
+                        </h2>
+                        <div class="price-features">  
+                            <h5>Annual Pass</h5>
+                            <p>Boxing</p> 
+                            <p>Festivals</p>
+                            <p>MMA Events</p>
+                            <p>Concerts</p> 
+                            <p>Pulse&#8482; Access</p>
+                        </div>
+                        <a href="<%= products_path(:product_ids => 54) %>" class="btn btn-primary btn-md btn-appear"><span>Purchase Ticket <i class="fa fa-arrow-right"></i></span></a>
+                    </div>
+                </div> 
+            </div> 
+
+        </div>
+    </div>
+</section>            
+<!-- End Pricing -->
+
+<!-- Accordion Style 2 -->
+<section class="bg-img-6"> 
+    <div class="container pt100 pb100"> 
+        <div class="vertical-align">    
+
+            <div class="col-md-6 pr100 white">
+                <h2>N2ME Live Events</h2>
+              <p>Get LIVE full featured access to today's hottest events and festivals from all over the world.</p>
+              <p>Live Streaming Feeds, On Any Device, Anywhere! Powered by the SuperCloud&#8482; - No Buffering, No Plugins</p>
+            </div> 
+
+            <div class="col-md-6"> 
+                <div class="panel-group accordian-style2 mb0" id="accordion">
+                  <!-- First Panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <button class="panel-title collapsed" data-toggle="collapse" data-target="#collapse5">
+                        Music Festivals
+                      </button>
+                    </div>
+                    <div id="collapse5" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        Today's Hottest Music & EDM Festivals<br>
+                        Streaming Live - It's Like Being There!
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Second Panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <button class="panel-title collapsed" data-toggle="collapse" data-target="#collapse6">
+                        Live Concerts
+                      </button>
+                    </div>
+                    <div id="collapse6" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        Live Access to Today's Top Music Artists<br>
+                        Live Stream Concerts from All Over the World!.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Third Panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <button class="panel-title collapsed" data-toggle="collapse" data-target="#collapse7">
+                        Boxing Events
+                      </button>
+                    </div>
+                    <div id="collapse7" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        Prime Time Access to the Hottest Boxing Main Events. <br>
+                        Ringside Feeds, Post Fight Interviews!
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Fourth Panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <button class="panel-title collapsed" data-toggle="collapse" data-target="#collapse8">
+                        MMA Events
+                      </button>
+                    </div>
+                    <div id="collapse8" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        Today's Latest MMA Showdowns - Watch LIVE<br>
+                        Live HD Feeds, No Buffering - See the Brutal Action On Your Terms.
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+
+            </div> 
+
+        </div>
+    </div>
+</section>

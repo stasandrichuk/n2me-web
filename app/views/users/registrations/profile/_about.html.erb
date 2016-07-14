@@ -1,0 +1,43 @@
+<div class="uk-grid uk-margin-medium-top uk-margin-large-bottom">
+  <div class="uk-width-large-1-2">
+    <h4 class="heading_c uk-margin-small-bottom">
+      Contact Info
+    </h4>
+    <ul class="md-list md-list-addon">
+      <li>
+        <div class="md-list-addon-element">
+          <i class="md-list-addon-icon material-icons">
+          
+          </i>
+        </div>
+        <div class="md-list-content">
+          <span class="md-list-heading"><%= current_user.email %>
+          </span><span class="uk-text-small uk-text-muted">
+          Email
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="uk-width-large-1-2">
+    <% if current_user.billing_address %>
+    <h4 class="heading_c uk-margin-small-bottom">
+      Billing Address
+    </h4>
+    <ul class="md-list">
+      <% current_user.billing_address.each_pair do |key, value|
+        %>
+      <li>
+        <div class="md-list-content">
+          <span class="md-list-heading">
+          <%= key.humanize %>
+          </span><span class="uk-text-small uk-text-muted">
+          <%= value %>
+          </span>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+</div>

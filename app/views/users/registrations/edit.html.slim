@@ -1,0 +1,52 @@
+- content_for :header do
+  | My profile
+
+.container.edit-profile.gray-card
+  .col-sm-8.col-sm-offset-2
+    .row
+      .col-sm-12
+        h3 Profile
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+          = devise_error_messages!
+
+          .uk-form-row
+            .col-sm-3
+              = f.label :email, 'E-mail-address'
+            .col-sm-9
+              = f.text_field :email, class: 'md-input', autocompete: 'off'
+
+          .uk-form-row
+            .col-sm-3
+              = f.label :name, 'Full Name'
+            .col-sm-9
+              = f.text_field :name, class: 'md-input', autocompete: 'off'
+          .uk-form-row
+            .col-sm-3
+              = f.label :genres, 'Favorite Genres'
+            .col-sm-9
+              = f.text_field :genre_ids, class: 'md-input', autocompete: 'off'
+          .uk-form-row.buttons
+            = f.submit 'Save Profile', class: 'md-btn btn-primary'
+            a.md-btn.btn-default href="#{users_change_password_path}" Change Password
+
+- content_for :javascript do
+  javascript:
+    $(document).ready(function() {
+      var $input = $('input#user_genre_ids')
+      $input.tagsinput({
+        itemText: 'title',
+        itemValue: 'id',
+        typeahead: {
+          source: #{@genres.to_json.html_safe},
+          showHintOnFocus: true,
+          items: 10000,
+          afterSelect: function(){
+            $('.bootstrap-tagsinput input').val("")
+          } 
+        }
+      });
+      var favoriteGenres = #{current_user.genres.map{|x| {id: x.id, title: x.title}}.to_json.html_safe}
+      $.each(favoriteGenres, function(index, item){
+        $input.tagsinput('add', item);
+      })
+    })

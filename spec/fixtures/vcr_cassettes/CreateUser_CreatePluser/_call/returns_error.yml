@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://euid.theplatform.com/idm/data/User/UBpRu2vqlRVlcA0H?account=http://mps.theplatform.com/data/Account/2673532949&form=json&schema=1.0&token=zBm3M7d2CChalDQWHOm2geAY4FCSEBDU
+    body:
+      encoding: UTF-8
+      string: '{"$xmlns":{"pluser":"http://xml.theplatform.com/auth/data/User"},"pluser$ownerId":"http://mps.theplatform.com/data/Account/2673532949","pluser$userName":"","pluser$email":"","pluser$password":"good_password"}'
+    headers:
+      User-Agent:
+      - tpdata/1.1.5
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 04 Feb 2016 02:49:22 GMT
+      - Thu, 04 Feb 2016 02:49:22 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, no-store
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '1620'
+      Server:
+      - Jetty(8.1.16.2)
+    body:
+      encoding: UTF-8
+      string: '{"title":"ValidationException","description":"User name and password
+        are required to create a user.","isException":true,"responseCode":422,"correlationId":"a1b1b663-e2a0-4016-9c0a-20e3562fc3c2","serverStackTrace":"com.theplatform.module.exception.ValidationException:
+        User name and password are required to create a user.\n\tat com.theplatform.data.validation.error.DefaultValidationErrorHandler.handleError(DefaultValidationErrorHandler.java:30)\n\tat
+        com.theplatform.data.validation.ValidationHandler.validate(ValidationHandler.java:108)\n\tat
+        com.theplatform.authentication.data.pipeline.UserCreatePersistencePhase.doCreate(UserCreatePersistencePhase.java:92)\n\tat
+        com.theplatform.authentication.data.pipeline.UserCreatePersistencePhase.doExecute(UserCreatePersistencePhase.java:54)\n\tat
+        com.theplatform.authentication.data.pipeline.UserCreatePersistencePhase.doExecute(UserCreatePersistencePhase.java:29)\n\tat
+        com.theplatform.module.pipeline.Phase.execute(Phase.java:103)\n\tat com.theplatform.data.pipeline.phase.DataServicePhase.execute(DataServicePhase.java:65)\n\tat
+        com.theplatform.data.pipeline.phase.StatusReportingPhase.execute(StatusReportingPhase.java:53)\n\tat
+        com.theplatform.data.pipeline.phase.StatusReportingPhase.execute(StatusReportingPhase.java:16)\n\tat
+        com.theplatform.module.pipeline.thread.PhaseExecution.run(PhaseExecution.java:105)\n\tat
+        com.theplatform.module.pipeline.thread.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:909)\n\tat
+        com.theplatform.module.pipeline.thread.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:931)\n\tat
+        java.lang.Thread.run(Thread.java:745)"}'
+    http_version: 
+  recorded_at: Thu, 04 Feb 2016 02:49:22 GMT
+recorded_with: VCR 3.0.1

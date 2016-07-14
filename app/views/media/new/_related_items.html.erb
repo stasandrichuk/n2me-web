@@ -1,0 +1,26 @@
+              <!-- Start related videos -->
+              <div class="cp-top mt40">
+                <h4><%= title %></h4>
+              </div>
+              <div class="cp-watch-holer related-videos">
+                <div class="uk-slidenav-position">
+                    <div class="row">
+                      <div class="row__inner">
+                        
+                        <% @media.related_items.each do |m| %>
+                          <% m = m.becomes(Game) if m.is_a_game %>
+                          <div class="tile">
+                            <div class="tile__media">
+                              <a href="/media/<%= m.number %>">
+                                <%= image_tag m.thumbnail_url %>
+                              </a>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                      <a class="previous uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slider-item="previous"></a>
+                      <a class="next uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slider-item="next"></a>
+                    </div>
+                </div>
+              </div>
+              <!-- End related videos -->

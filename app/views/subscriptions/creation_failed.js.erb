@@ -1,0 +1,4 @@
+$('#stripe-error strong').html("<%= escape_javascript(@charge.error) %>");
+$('#stripe-error').show()
+$('.js-stripe-checkout .text').show()
+$('.js-stripe-checkout .spinner').hide()

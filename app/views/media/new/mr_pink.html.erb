@@ -1,0 +1,156 @@
+<% content_for :head do %>
+  <style type="text/css">
+    footer section, .media-container{
+      background: #191919;
+    }
+    #overlay {
+      text-align: center;
+      margin: 0 auto;
+    }
+    .hero-container h1 span{
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 60px;
+    }
+
+    .hero-container{
+      height: 65%;
+      width: 100%;
+    }
+    #footer-2 ul{
+      margin: 0;
+    }
+    h4{
+      margin-left: 15px;
+    }
+    .cp-video-detail-outer{
+      border: 1px solid #e6e6e6;
+    }
+
+    @media (max-width: 768px){
+      .hero-container{
+        height: 90%;
+      } 
+    }
+  </style>
+<% end %>
+<section class="hero-fullscreen hero-video overlay">   
+    <video youtube-video-id="Eo5qAVq4rBQ" id="vossen-youtube"></video>
+    <div class="hero-container">
+       <div class="hero-content text-center">   
+            
+            <div class="col-sm-11 mr-auto text-center">
+                <h4 class=" white">Drink Mr. Pink!</h3>
+                <h1 class="white">Changing the <span class="bold">Rules</span> of <span class="bold">Energy Drinks</span></h1>
+            </div> 
+        </div>
+    </div>   
+    
+</section>
+<!-- End Hero --> 
+
+<div>
+    <div class="container">
+        <div class="row" style="margin-top:-25vh">   
+            <div class="app-gallery cbp" id="js-grid-slider"> 
+              <% for i in (1..4) %>
+                <div class="cbp-item">
+                    <a class=" cbp-caption">
+                        <div class="cbp-caption-defaultWrap">
+                          <img alt="" src="/mr_pink/drink<%= i %>.jpg">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignCenter">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title"><i class="icon-magnifying-glass size-1x"></i></div> 
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              <% end %>
+            </div>   
+        </div>
+    </div>
+</div>
+        
+<!-- Video Embeds -->
+<section class="pt60 pb30">
+    <div class="container"> 
+      <div class="row">	
+
+        <div class="row mt40">
+            <div class="col-md-12">
+                <h4>Mr. Pink Energy Drinks</h4>
+                <div class="media-container">
+                  <%= render template: 'media/new/show'%>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+</section> 
+<!-- End Video Embeds -->
+        
+        <!-- Image Column -->
+        <section class="pt20 pb40">
+            <div class="container">
+                <div class="vertical-align">
+
+                    <div class="col-md-6">
+                        <img src="/mr_pink/mr-pink.jpg" class="img-responsive mr-auto">
+                    </div>
+                    
+                    <div class="col-md-6 p5percent">
+                        <h2>It's not a <strong>Drink</strong>, its a <strong>LifeStyle</strong></h2> 
+                        <h4 class="subheading">Changing the rules of the game in the world of energy drinks. </h4>
+                        <p class="mt20">Whether you are hitting the books, the road or the clubs, Mr. Pink Energy gives you the fuel without the crash. Finally, there’s a potent and healthy alternative to energy drinks that are full of harmful, synthetic ingredients. Mr. Pink Energy is packed with replenishing B-Vitamins and 1,000mg of Ginseng that will boost your memory and make your energy levels skyrocket day and night!</p>
+                        <a href="http://www.mrpink.tv/" target="blank" class="btn btn-lg btn-primary btn-circle btn-appear mt20"><span>Check Out MrPink.tv <i class="fa fa-check"></i></span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>          
+        <!-- End Image Column -->
+        
+        
+         <section class="pt20 pb30">
+         <div class="container"> 
+                <div class="row">
+      <!-- Youtube Half Column -->
+                    <div class="col-sm-6">   
+                        <h4>Mr. Pink: Midsummers Pool Side Soiree</h4> 
+                        <div class="embed-container">
+                            <iframe src="https://www.youtube.com/embed/qtcre1ctomE" frameborder="0" allowfullscreen=""></iframe>
+                        </div>  
+                    </div> 
+                    
+                    <div class="col-sm-6">   
+                        <h4>Mr. Pink Beverages Are Made In the USA and Happy For Life</h4> 
+                        <div class="embed-container">
+                            <iframe src="https://www.youtube.com/embed/0kkAPXPlh4E" frameborder="0" allowfullscreen=""></iframe>
+                        </div>  
+                    </div> 
+        </div></div>
+        </section>
+        <!-- Start Footer 2 -->
+        <footer id="footer-2" class="pt20">
+
+            <img src="/mr_pink/mr-pink-logo-sm.png" alt="#" class="mr-auto img-responsive"> 
+            <ul>
+                <li><a href="https://www.facebook.com/DrinkMrPink/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/drinkmrpink" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/drinkmrpink/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li> 
+                <li><a href="https://www.youtube.com/channel/UCId1ssHFgMrG0_3EyU8gINw" target="_blank"><i class="fa fa-youtube"></i></a></li> 
+            </ul>
+         
+
+        </footer>
+        <!-- End Footer 2 --> 
+
+<% content_for :footer do %>
+  <%= render 'layouts/new/footer' %>
+<% end %>
+<!-- Start Back To Top -->
+<a id="back-to-top" style="opacity: 0;"><i class="fa fa-angle-up"></i></a>

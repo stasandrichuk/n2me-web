@@ -1,0 +1,13 @@
+<div class="uk-panel media show-game">
+  <div class="uk-grid">
+    <div class="uk-width-1-1">
+      <h2><%= @media.title %></h2>
+      <div class="uk-panel">
+        <%= @media.description.html_safe %>
+        <br>
+        <br>
+        <%= @media.file_url.to_s.html_safe %>
+      </div>
+    </div>
+  </div>
+</div>

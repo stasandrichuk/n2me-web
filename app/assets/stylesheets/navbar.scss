@@ -1,0 +1,17 @@
+#header_main {
+  margin-left: 0px !important;
+
+  background: #000;
+  .md-user-image {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+.header-logo-img {
+  max-height: 100%;
+}
+.uk-navbar-nav > li > a.header-logo-link {
+  margin-top: 0;
+}
+ul.uk-navbar-nav > li.menu {
+  padding-top: 3px;
+}

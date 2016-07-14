@@ -1,0 +1,210 @@
+<!--Header Start-->
+<header class="cp_header">
+  <!--Navigation Start-->
+  <div class="cp-navigation-row">
+    <!--Side Bar Menu Start-->
+    <div id="cp_side-menu"> <span id="cp-close-btn"><a href="#"><i class="fa fa-times"></i></a></span>
+      <div class="cp_side-navigation">
+        <ul class="cp-social-links">
+
+          <li><a href="/profile#favorites"><i class="fa fa-heart-o"></i></a></li>
+          <li><a href="/profile#recently-watched"><i class="fa fa-film"></i></a></li>
+          <li><a href="/products"><i class="fa fa-credit-card"></i></a></li>
+        </ul>
+        <div class="cp-right-outer">
+          <ul class="navbar-nav">
+            <li class="dropdown"><a href="/categories" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Browse Media<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/categories/1422405890">Live TV</a></li>
+                <li><a href="/categories/1423429519">Movies</a></li>
+                <li><a href="/categories/1423429520">Events</a></li>
+                <li><a href="/categories/1422405926">Games</a></li>
+                <li><a href="/music">Music</a></li>
+                <li><a href="<%= ebooks_path %>">E-Books</a></li>
+                <li><a href="/categories/1422405886">International</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/mechat/index">MeChat Video Chat & Broadcasting</a> </li>
+            <li><a href="#">Live TV Guide</a> </li>
+            <li><a href="http://imdb.n2me.tv">TV & Movie Reviews and More</a></li>
+          </ul>
+          <%= form_tag search_path, :method => :get, :class => 'cp-search-form-outer' do %>
+            <div class="cp-search-form-outer">
+              <input type="text" name="query" placeholder="Search..." required>
+              <button class="btn-submit" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+            <label>... or refine by category.</label>
+          <% end %>
+          <% if current_user %>
+            <div class="cp-upload-outer"> <a href="/profile" class="file-btn">My Account</a>
+              <ul class="cp-listed">
+                   <li class="login-btn"><i class="fa fa-sign-out"></i><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!--Side Bar Menu End-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <!--Sidebar Menu Button -->
+          <div id="cp_side-menu-btn" class="cp_side-menu"> <a href="javascript:void(0)" class=""><i class="fa fa-bars"></i></a> </div>
+          <!--Sidebar Menu Button End-->
+
+          <!--Logo Start-->
+          <strong class="cp-logo"> <a href="/"><img src="<%= asset_path('new_layout/cp-logo1.png') %>" alt=""></a> </strong>
+          <!--Logo End-->
+          <!--Nav Holder Start-->
+          <div class="cp-nav-holder">
+            <div class="cp-megamenu">
+              <div class="cp-mega-menu">
+                <label for="mobile-button"> <img src="<%= asset_path('new_layout/menu-bar.png') %>" alt=""> </label>
+                <!-- mobile click button to show menu -->
+                <input id="mobile-button" type="checkbox">
+                <ul class="main-menu">
+                  <li><a href="/categories">Home</a></li>
+                  <li> <a href="#" id="browselink">Browse Media</a>
+                    <ul class="drop-down full-width col-5 hover-expand" id="browsedropdown">
+                      <li>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="/categories/1422405890"><img src="<%= asset_path('new_layout/cat-livetv.png') %>" alt=""></a> </div>
+                          <a href="/categories/1422405890">Live TV</a> </div>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="/categories/1423429520"><img src="<%= asset_path('new_layout/cat-events.png') %>" alt=""></a> </div>
+                          <a href="/categories/1423429520">Events</a> </div>
+                      </li>
+                      <li>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="/categories/1422405926"><img src="<%= asset_path('new_layout/cat-games.png') %>"></a> </div>
+                          <a href="/categories/1422405926">Gaming</a> </div>
+
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="/music"><img src="<%= asset_path('new_layout/cat-music.png') %>"></a> </div>
+                          <a href="/music">Music</a> </div>
+                      </li>
+                      <li>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="/categories/1423429519"><img src="<%= asset_path('new_layout/cat-movies.png') %>"></a> </div>
+                          <a href="/categories/1423429519">Movies</a> </div>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="/categories/1422405886"><img src="<%= asset_path('new_layout/cat-international.png') %>"></a> </div>
+                          <a href="/categories/1422405886">International</a> </div>
+                      </li>
+                      <li>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="<%= ebooks_path %>"><img src="<%= asset_path('cat-ebooks.png') %>"></a> </div>
+                          <a href="<%= ebooks_path %>">Ebooks</a> </div>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="http://imdb.n2me.tv" target="_blank"><img src="<%= asset_path('cat-imdb-reviews.png') %>"></a> </div>
+                          <a href="http://imdb.n2me.tv">Reviews & News</a> </div>
+                      </li>
+                      <li>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="/profile#favorites"><img src="<%= asset_path('cat-favorites.png') %>"></a> </div>
+                          <a href="/profile#favorites">My Favorites</a> </div>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="/profile#recently-watched" target="_blank"><img src="<%= asset_path('cat-recently-watched.png') %>"></a> </div>
+                          <a href="/profile#recently-watched">Watch Again</a> </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li> <a href="/profile">My Subscription</a></li>
+                  <li> <a href="#" id="watchlistlink">My Watch List</a>
+                    <% if current_user.present? && current_user.recently_viewed_media.count > 0 %>
+                      <ul class="drop-down full-width col-4 hover-expand" id="watchlistdropdown">
+                        <% current_user.recently_viewed_media[0..3].each do |m| %>
+                          <li>
+                            <div class="cp-video-item">
+                              <figure class="cp-thumb"> <img src="<%= m.thumbnail_url %>">
+                                <figcaption class="cp-caption"> <a href="/media/<%= m.number %>" class="play-video">Play</a> </figcaption>
+                              </figure>
+                              <div class="cp-text">
+
+                                <h4><a href="/media/<%= m.number %>"><%= m.title %></a></h4>
+                                <!--Add Dynamic Content Later <ul class="cp-meta-list">
+                                      <li>Monday, Jan 26, 2016</li>
+                                      <li>by Jiana Smith, <span>160 Views</span></li>
+                                    </ul>-->
+                              </div>
+                            </div>
+                          </li>
+
+                        <% end %>
+                        <li><a href="/profile#favorites">Show all</a></li>
+                      </ul>
+                    <% end %>
+                  </li>
+                  <li> <a href="/mechat/index">MeChat</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--Nav Holder End-->
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <!--Right Holder Start-->
+
+          <div class="cp-right-holder">
+          <%= form_tag("/schedule", method: "post", class: "get-location") do %>
+            <input type="hidden" name="utc_offset" id="utc_offset" />
+            <input type="hidden" name="now" id="now"></input>
+
+            <%= link_to "Live TV Guide", 'schedule_path', class: 'file-btn' %>
+          <% end %>
+            <ul class="cp-social-links">
+
+              <li><a href="/profile#favorites"><i class="fa fa-heart-o"></i></a></li>
+              <li><a href="/profile#recently-watched"><i class="fa fa-film"></i></a></li>
+              <li><a href="/products"><i class="fa fa-credit-card"></i></a></li>
+              <li class="cp-search-holder"><i class="fa fa-search"></i>
+                <%= form_tag search_path, :method => :get, :class => 'cp-search-form-outer' do %>
+                  <input type="text" placeholder="Search..." name="query" required>
+                  <button class="btn-submit" type="submit"><i class="fa fa-search"></i></button>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <!--Right Holder End-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Navigation End-->
+</header>
+<!--Header End-->
+
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    /* Side Bar Menu Js
+     ======================================================*/
+    $(document).ready(function(){
+      $('#utc_offset').val(moment().utcOffset());
+
+      $('.get-location .file-btn').click(function(event){
+        event.preventDefault();
+        var now = moment().format('YYYY-MM-DD HH:mm:ss');
+        $('#now').val(now);
+        
+        $('.get-location').submit();
+      });
+
+      if($('#cp_side-menu-btn, #cp-close-btn').length) {
+
+        $(document).on('click', '#cp_side-menu-btn',  function(){
+
+          $('body, #cp_side-menu').animate({
+            left: '300px'
+          }, 300);
+        });
+        $(document).on('click', '#cp-close-btn', function(){
+          $('body, #cp_side-menu').animate({
+            left: '0px'
+          }, 300);
+        });
+      }
+    })
+  </script>
+<% end %>

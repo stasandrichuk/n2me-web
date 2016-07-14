@@ -1,0 +1,54 @@
+<div class="img-circle img-thumbnail text-center">
+  <img class="avatar" alt="user avatar" src="<%= current_user.avatar_url %>" />
+  <div class="dropdown profile-image-change-text">
+    <span class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-pencil"></i></span>
+    <ul class="dropdown-menu">
+      <li class="header text-center">
+        Change Avatar
+        <button type="button" class="close"><span>×</span></button>
+      </li>
+      <li role="separator" class="divider"></li>
+      <li class="item uploaded-picture <%= 'hidden' unless current_user.avatar.url %>" data-avatar-option="">
+        <a class="<%= 'selected' if current_user.avatar_option == 2 %>" data-avatar-option="2">
+          <img alt="user avatar" src="<%= current_user.avatar.thumb.url %>" /> 
+          <span> Uploaded Picture </span>
+          <i class="fa"></i>
+        </a> 
+      </li>
+      <li class="item use-gravatar"> 
+        <a class="<%= 'selected' if current_user.avatar_option == 1 %>" data-avatar-option="1">
+          <img alt="user avatar" src="<%= current_user.gravatar %>" /> 
+          <span> Gravatar </span>
+          <i class="fa"></i>
+        </a> 
+      </li>
+      <li class="item default-avatar"> 
+        <a class="<%= 'selected' if current_user.avatar_option == 0 %>" data-avatar-option="0">
+          <img alt="user avatar" src="/img/avatars/user.png" />
+          <span>Initials (no avatars)</span> 
+          <i class="fa"></i>
+        </a>
+      </li>
+      <li role="separator" class="divider"></li>
+      <li class="upload">
+        <%= form_for(current_user, url: registration_path(:user), html: { method: :put, accept:'image/*'}) do |f| %>
+          <a class="btn btn-default">
+            <i class="fa fa-paperclip" aria-hidden="true"></i>
+            <span>Upload a new picture</span>
+            <%= f.file_field :avatar%>
+          </a>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    var avatar = null;
+    $(document).ready(function(){
+      var currentUser = JSON.parse("<%= escape_javascript(current_user.to_json.html_safe) %>")
+      avatar = new Avatar({user: currentUser})
+    })
+  </script>
+<% end %>

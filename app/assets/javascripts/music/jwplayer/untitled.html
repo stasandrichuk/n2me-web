@@ -1,0 +1,42 @@
+<!-- <script type="text/javascript" src="http://cdn.jsdelivr.net/jwplayer/5.10/jwplayer.js"></script> -->
+<!-- flashplayer:"http://cdn.jsdelivr.net/jwplayer/5.10/player.swf" -->
+<!-- rtmp://draco.streamingwizard.com/wizard/_definst_/demo/mp3/KanyeWestBeachBoys.mp3 -->
+<!-- https://www.vedamonline.com/test1.aspx -->
+<!-- https://dashboard.jwplayer.com/#/players/downloads?property=b0f866cc-3191-11e6-8c48-128293859c83 -->
+<!-- https://support.jwplayer.com/customer/portal/articles/1430358-using-rtmp-streaming -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <!-- <script src="https://content.jwplatform.com/libraries/5zOcRhf3.js"></script> -->
+  <script src="http://localhost:3000/jwplayer/jwplayer.js"></script>
+<script>jwplayer.key="HJCVNv17wXeo0inOMjLqA5evljji1u43z67Omg==";</script>
+</head>
+
+<body>
+  <div id="myElement"></div>
+  <script>
+    // jwplayer("container").setup({
+    //   playlist: "http://content.jwplatform.com/feeds/F2YKWOWd.rss",
+    //   captions: {
+    //     color: "FFCC00",
+    //     backgroundColor: "000000",
+    //     backgroundOpacity: 50
+    //   }
+    // });
+    var playerInstance = jwplayer("myElement");
+playerInstance.setup({
+	playlist: [{
+		sources: [{ 
+			file: "rtmp://mn-ecn-prd-rtmp.mndigital.com/mp3:/spl/021/056/217/spl_024?48d882e51ff49ca3806e4b63d90b926556349db16cecf61947a8e89a44fdbaea8583"
+		}]
+	}],
+height: 70,
+primary: "flash",
+width: 890
+});
+  </script>
+</body>
+</html>
+

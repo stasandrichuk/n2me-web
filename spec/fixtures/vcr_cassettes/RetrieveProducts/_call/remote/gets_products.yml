@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://data.product.theplatform.com/product/data/Product/?fields=id,title,longDescription,images,scopes,pricingPlan,description&form=cjson&schema=2.5.0&token=zBm3M7d2CChalDQWHOm2geAY4FCSEBDU
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Feb 2016 14:19:15 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Cache:
+      - MISS from data.product.theplatform.com:80
+      Cache-Control:
+      - max-age=0
+      Content-Length:
+      - '16597'
+      Server:
+      - Jetty(6.1.26)
+    body:
+      encoding: UTF-8
+      string: '{"startIndex":1,"itemsPerPage":500,"entryCount":11,"entries":[{"id":"http://data.product.theplatform.com/product/data/Product/22231758","title":"Taken
+        3","description":"Ex-covert operative Bryan Mills (Liam Neeson) and his ex-wife,
+        Lenore (Famke Janssen), are enjoying a reconciliation when Lenore is brutally
+        murdered. Bryan is framed for the crime and flees, with the CIA, FBI and police
+        all in hot pursuit. For the last time, he channels his rage and particular
+        set of skills into hunting down Lenore''s real killers, taking his revenge
+        and protecting the one important thing left in his life: his daughter, Kim
+        (Maggie Grace).","longDescription":"","images":{"uncategorized":[{"mediaFileId":"http://data.media2.theplatform.com/media/data/MediaFile/373829662","height":1200,"width":800,"url":"http://pmd369599tn.download.theplatform.com.edgesuite.net/Supercloud_-_Trial_Account/357/525/TVNX_00363747_0216631_4.jpg"}]},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1455151920000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":14.99},"isBlackout":false,"isActive":true}],"masterAgreementStartDate":1455080400000,"masterAgreementEndDate":1483160400000,"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.media2.theplatform.com/media/data/Media/373829661","id":"http://data.media2.theplatform.com/media/data/Media/373829661","guid":"017128BE-7BE1-DBC7-895A-4184FDEF7A88","title":"Taken
+        3","description":"","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/22185028","title":"Cloud
+        Latino","description":"Get this package for only $24.99 a month!","longDescription":"Cloud
+        Latino","images":{},"pricingPlan":{"isTaxIncluded":false,"isRecurring":true,"pricingTiers":[{"absoluteStart":1451701860000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":1,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":24.99},"isBlackout":false,"isActive":true}],"providerId":"http://data.media2.theplatform.com/media/data/Provider/156741765","masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.product.theplatform.com/product/data/Subscription/20394435","id":"http://data.product.theplatform.com/product/data/Subscription/20394435","guid":"M3BLK96iz2hHPCaJyEPTwTjX9dn4HocV","title":"Cloud
+        Latino","description":"(18 Mobibase Latino channels in one package) (sub-category)Subscription)","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/20444753","title":"Cloud
+        International","description":"Get this package for only $24.99 a month!","longDescription":"All
+        50 Mobibase channels offered in one package","images":{},"pricingPlan":{"isTaxIncluded":false,"isRecurring":true,"pricingTiers":[{"absoluteStart":1450300560000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":1,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":24.99},"isBlackout":false,"isActive":true}],"providerId":"http://data.media2.theplatform.com/media/data/Provider/156741765","masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.product.theplatform.com/product/data/Subscription/20394434","id":"http://data.product.theplatform.com/product/data/Subscription/20394434","guid":"0CoppKMLCQEGLBraLF8uRrVMkRn32i5e","title":"Cloud
+        International","description":"(all 50 Mobibase channels offered in one package)
+        (sub-category)","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/22230893","title":"Kingsman
+        - The Secret Service","description":"Gary \"Eggsy\" Unwin (Taron Egerton),
+        whose late father secretly worked for a spy organization, lives in a South
+        London housing estate and seems headed for a life behind bars. However, dapper
+        agent Harry Hart (Colin Firth) recognizes potential in the youth and recruits
+        him to be a trainee in the secret service. Meanwhile, villainous Richmond
+        Valentine (Samuel L. Jackson) launches a diabolical plan to solve the problem
+        of climate change via a worldwide killing spree.","longDescription":"","images":{"uncategorized":[{"mediaFileId":"http://data.media2.theplatform.com/media/data/MediaFile/373829650","height":1200,"width":800,"url":"http://pmd369599tn.download.theplatform.com.edgesuite.net/Supercloud_-_Trial_Account/357/1024/TVNX_00371672_0219972_4.jpg"}]},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1455152400000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":14.99},"isBlackout":false,"isActive":true}],"masterAgreementStartDate":1455080400000,"masterAgreementEndDate":1483160400000,"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.media2.theplatform.com/media/data/Media/374341621","id":"http://data.media2.theplatform.com/media/data/Media/374341621","guid":"0D490A6D-EF23-4517-F385-417D341109B9","title":"Kingsman
+        - The Secret Service","description":"","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/22226461","title":"Whiplash","description":"A
+        promising young drummer enrolls at a cut-throat music conservatory where his
+        dreams of greatness are mentored by an instructor who will stop at nothing
+        to realize a student''s potential.","longDescription":"A promising young drummer
+        enrolls at a cut-throat music conservatory where his dreams of greatness are
+        mentored by an instructor who will stop at nothing to realize a student''s
+        potential.","images":{"uncategorized":[{"mediaFileId":"http://data.media2.theplatform.com/media/data/MediaFile/373829679","height":1200,"width":800,"url":"http://pmd369599tn.download.theplatform.com.edgesuite.net/Supercloud_-_Trial_Account/357/525/TVNX_00344739_0208238_4.jpg"}]},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1455147300000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":14.99},"isBlackout":false,"isActive":true}],"masterAgreementStartDate":1455080400000,"masterAgreementEndDate":1483160400000,"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.media2.theplatform.com/media/data/Media/373829678","id":"http://data.media2.theplatform.com/media/data/Media/373829678","guid":"DE7E8662-8D6F-756C-87E3-4186FAE9ABA7","title":"Whiplash","description":"","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/22231389","title":"Lazarus
+        Effect","description":"Medical researcher Frank (Mark Duplass), his fiancee
+        Zoe (Olivia Wilde) and their team have achieved the impossible: they have
+        found a way to revive the dead. After a successful, but unsanctioned, experiment
+        on a lifeless animal, they are ready to make their work public. However, when
+        their dean learns what they''ve done, he shuts them down. Zoe is killed during
+        an attempt to recreate the experiment, leading Frank to test the process on
+        her. Zoe is revived -- but something evil is within her.","longDescription":"","images":{"uncategorized":[{"mediaFileId":"http://data.media2.theplatform.com/media/data/MediaFile/374341623","height":1200,"width":800,"url":"http://pmd369599tn.download.theplatform.com.edgesuite.net/Supercloud_-_Trial_Account/357/1024/TVNX_00371434_0219820_4.jpg"}]},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1455152340000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":14.99},"isBlackout":false,"isActive":true}],"masterAgreementStartDate":1455080400000,"masterAgreementEndDate":1483160400000,"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.media2.theplatform.com/media/data/Media/374341622","id":"http://data.media2.theplatform.com/media/data/Media/374341622","guid":"E4A46B33-92A6-FB5D-F122-418191D6B673","title":"Lazarus
+        Effect","description":"","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/22231388","title":"Lucy","description":"When
+        a boyfriend tricks Lucy (Scarlett Johansson) into delivering a briefcase to
+        a supposed business contact, the once-carefree student is abducted by thugs
+        who intend to turn her into a drug mule. She is surgically implanted with
+        a package containing a powerful chemical, but it leaks into her system, giving
+        her superhuman abilities, including telekinesis and telepathy. With her former
+        captors in pursuit, Lucy seeks out a neurologist (Morgan Freeman), who she
+        hopes will be able to help her.","longDescription":"","images":{"uncategorized":[{"mediaFileId":"http://data.media2.theplatform.com/media/data/MediaFile/373829653","height":1200,"width":800,"url":"http://pmd369599tn.download.theplatform.com.edgesuite.net/Supercloud_-_Trial_Account/357/1024/TVNX_00340730_0206346_4.jpg"}]},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1455152280000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":14.99},"isBlackout":false,"isActive":true}],"masterAgreementStartDate":1455080400000,"masterAgreementEndDate":1483160400000,"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.media2.theplatform.com/media/data/Media/374341624","id":"http://data.media2.theplatform.com/media/data/Media/374341624","guid":"D046FF9D-BA78-EBB4-E1C5-41828834192B","title":"Lucy","description":"","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/22231759","title":"Night
+        at the Museum","description":"A night watchman (Ben Stiller) at a museum of
+        natural history makes a startling discovery: Thanks to the unleashing of an
+        ancient Egyptian curse, the museum''s animals, birds, bugs and other exhibits
+        spring to life after the building closes, and former President Teddy Roosevelt
+        (Robin Williams) is among those the hapless guard encounters.","longDescription":"","images":{"uncategorized":[{"mediaFileId":"http://data.media2.theplatform.com/media/data/MediaFile/373829656","height":1200,"width":800,"url":"http://pmd369599tn.download.theplatform.com.edgesuite.net/Supercloud_-_Trial_Account/357/525/TVNX_00357936_0214021_4.jpg"}]},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1455152220000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":14.99},"isBlackout":false,"isActive":true}],"masterAgreementStartDate":1455080400000,"masterAgreementEndDate":1483160400000,"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.media2.theplatform.com/media/data/Media/373829655","id":"http://data.media2.theplatform.com/media/data/Media/373829655","guid":"12EB4DB3-D94E-C3E0-3C24-41835A9D622D","title":"Night
+        at the Museum","description":"","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/22231387","title":"Paddington","description":"After
+        a deadly earthquake destroys his home in Peruvian rainforest, a young bear
+        (Ben Whishaw) makes his way to England in search of a new home. The bear,
+        dubbed \"Paddington\" for the london train station, finds shelter with the
+        family of Henry (Hugh Bonneville) and Mary Brown (Sally Hawkins). Although
+        Paddington''s amazement at urban living soon endears him to the Browns, someone
+        else has her eye on him: Taxidermist Millicent Clyde (Nicole Kidman) has designs
+        on the rare bear and his hide.","longDescription":"","images":{"uncategorized":[{"mediaFileId":"http://data.media2.theplatform.com/media/data/MediaFile/373829659","height":1200,"width":800,"url":"http://pmd369599tn.download.theplatform.com.edgesuite.net/Supercloud_-_Trial_Account/357/525/TVNX_00358323_0214149_4.jpg"}]},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1455152100000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":14.99},"isBlackout":false,"isActive":true}],"masterAgreementStartDate":1455080400000,"masterAgreementEndDate":1483160400000,"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.media2.theplatform.com/media/data/Media/373829658","id":"http://data.media2.theplatform.com/media/data/Media/373829658","guid":"DF83CA4B-FD01-3080-8374-418431E88E50","title":"Paddington","description":"","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/22230892","title":"Theory
+        of Everything","description":"In the 1960s, Cambridge University student and
+        future physicist Stephen Hawking (Eddie Redmayne) falls in love with fellow
+        collegian Jane Wilde (Felicity Jones).","longDescription":"In the 1960s, Cambridge
+        University student and future physicist Stephen Hawking (Eddie Redmayne) falls
+        in love with fellow collegian Jane Wilde (Felicity Jones). At 21, Hawking
+        learns that he has motor neuron disease. Despite this -- and with Jane at
+        his side -- he begins an ambitious study of time, of which he has very little
+        left, according to his doctor. He and Jane defy terrible odds and break new
+        ground in the fields of medicine and science, achieving more than either could
+        hope to imagine.","images":{"uncategorized":[{"mediaFileId":"http://data.media2.theplatform.com/media/data/MediaFile/373829667","height":1200,"width":800,"url":"http://pmd369599tn.download.theplatform.com.edgesuite.net/Supercloud_-_Trial_Account/357/525/TVNX_00353357_0211787_4.jpg"}]},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1455150720000,"absoluteEnd":1483160400000,"rightsIds":["http://data.entitlement.theplatform.com/eds/data/Rights/62384649"],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{"USD":14.99},"isBlackout":false,"isActive":true}],"masterAgreementStartDate":1455080400000,"masterAgreementEndDate":1483160400000,"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.media2.theplatform.com/media/data/Media/373829666","id":"http://data.media2.theplatform.com/media/data/Media/373829666","guid":"0E3E367D-715D-134E-5AC0-4185DBD26398","title":"Theory
+        of Everything","description":"","fulfillmentStatus":"fulfillable"}]},{"id":"http://data.product.theplatform.com/product/data/Product/21961948","title":"Test
+        product 1","description":"Test product 1 description","longDescription":"Test
+        product 1 long description","images":{},"pricingPlan":{"isTaxIncluded":false,"isRecurring":false,"pricingTiers":[{"absoluteStart":1454463360000,"absoluteEnd":1485799200000,"rightsIds":[],"subscriptionUnits":"month","billingFrequency":0,"minimumSubscriptionPeriod":0,"productTagIds":[],"productTags":[],"amounts":{},"isBlackout":false,"isActive":true}],"masterProductTagIds":[]},"scopes":[{"scopeId":"http://data.entertainment.tv.theplatform.com/entertainment/data/Program/224804902764","id":"http://data.entertainment.tv.theplatform.com/entertainment/data/Program/224804902764","guid":"aNZuNwlno0fGfn6UNnu5N97IyPeaAxK3","title":"Duna","fulfillmentStatus":"fulfillable"},{"scopeId":"http://data.product.theplatform.com/product/data/Subscription/20185841","id":"http://data.product.theplatform.com/product/data/Subscription/20185841","guid":"W2cZ0aONetfhpshLnjZl3niRUxoEnWBz","title":"Basic","description":"Includes
+        BC Access / Access and Basic channels","fulfillmentStatus":"fulfillable"}]}]}'
+    http_version: 
+  recorded_at: Mon, 22 Feb 2016 14:19:15 GMT
+recorded_with: VCR 3.0.1

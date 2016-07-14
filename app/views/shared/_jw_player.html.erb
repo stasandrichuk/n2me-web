@@ -1,0 +1,26 @@
+<% content_for :head do %>
+  <script type="application/javascript" src="https://content.jwplatform.com/libraries/B2tmYadP.js"></script>
+<% end %>
+<div id="video-player<%= media.number %>"></div>
+<script type='text/javascript'>
+  window.player = jwplayer("video-player<%= media.number %>").setup({
+    playlist: [{
+      image: '<%= media.thumbnail_url %>',
+      title: '<%= media.title %>',
+      sources: [
+        {
+          file: "<%= media.file_url %>"
+        }
+      ]
+    }],
+    image: '<%= media.thumbnail_url %>',
+    title: '<%= media.title %>',
+    width: '100%',
+    aspectratio: '16:9',
+    ga: '{}',
+    sharing: '{}',
+    androidhls: true,
+    autostart: true,
+    repeat: true
+  });
+</script>

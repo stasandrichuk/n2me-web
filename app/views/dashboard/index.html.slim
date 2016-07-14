@@ -1,0 +1,21 @@
+- content_for :head do
+  = stylesheet_link_tag('application')
+.content.col-sm-10.col-sm-offset-1
+  .uk-container.uk-container-center
+    - if @product_items.empty?
+      h1 No Items
+    - else
+      .uk-width-1-1
+        h2 Purchased
+      - for group in @product_items.in_groups_of(4)
+        .uk-grid
+          - group.each do |pi|
+            .uk-width-1-4
+              - if pi
+                a href=(pi.media? ? media_path(pi.short_mpxid) : '#')
+                  - if pi.thumbnail_url.present?
+                    img src=pi.thumbnail_url
+                  - else
+                    img src=asset_path('movie-placeholder.jpg')
+                  h5= pi.title
+        hr

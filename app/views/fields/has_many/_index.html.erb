@@ -1,0 +1,5 @@
+<% if field.data.first.try(:title) %>
+  <%= truncate(field.data.map(&:title).join(', '), length: 200) %>
+<% else %>
+  <%= pluralize(field.data.size, field.attribute.to_s.humanize.downcase) %>
+<% end %>

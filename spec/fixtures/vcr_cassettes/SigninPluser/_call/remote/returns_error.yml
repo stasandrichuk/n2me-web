@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://euid.theplatform.com/idm/web/Authentication/signIn?form=json&password=bad&schema=1.1&userName=UBpRu2vqlRVlcA0H/person2@example.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 05 Feb 2016 18:25:57 GMT
+      - Fri, 05 Feb 2016 18:25:57 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '290'
+      Server:
+      - Jetty(8.1.16.2)
+    body:
+      encoding: UTF-8
+      string: '{"description":"Either ''person2@example.com'' does not have an account
+        with this site, or the password was incorrect.","responseCode":401,"title":"com.theplatform.authentication.api.exception.AuthenticationException","correlationId":"baefcbcf-1073-4880-9f5e-c6f63424eee5","isException":true}'
+    http_version: 
+  recorded_at: Fri, 05 Feb 2016 18:25:58 GMT
+recorded_with: VCR 3.0.1

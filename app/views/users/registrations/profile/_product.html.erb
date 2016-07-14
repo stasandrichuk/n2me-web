@@ -1,0 +1,31 @@
+<div class="item"> 
+  <!-- Video Item Start-->
+  <div class="cp-video-item">
+    <figure class="cp-thumb no-background">
+      <% if product.picture.present? %>
+        <%= image_tag(product.picture_url, alt: "")%>
+      <% else %>
+        <%= image_tag("product-placeholder.jpg", alt: "")%>
+      <% end %>
+    </figure>
+    <div class="cp-text">
+      <h4><%= product.title %></h4>
+      <span class="uk-text-small uk-text-muted">
+        <% if subs %>
+          $<%= subs.pricing_plan.price / 100.0 %>/<%= subs.pricing_plan.interval %>
+          <a class="btn btn-success btn-subscribe">
+            Subcribe
+            <i class="fa fa-check-square-o" aria-hidden="true" ></i>
+          </a>
+        <% else %>
+          $<%= product.price %>/<%= product.pricing_plan.interval %><br/>
+          <a class="btn btn-danger btn-subscribe" href="<%= products_path(:product_ids => product.id) %>">
+            <i class="fa fa-caret-square-o-right" aria-hidden="true" ></i>
+            Subcribe
+          </a>
+        <% end %>
+      </span>
+    </div>
+  </div>
+  <!-- Video Item End--> 
+</div>

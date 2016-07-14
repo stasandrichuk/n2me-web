@@ -1,0 +1,38 @@
+<div class="item"> 
+  <!-- Video Item Start-->
+  <div class="cp-video-item">
+    <figure class="cp-thumb">
+      <% if m.thumbnail_url.present? %>
+        <img alt="" src="<%= m.thumbnail_url %>">
+      <% else %>
+        <img src="<%= asset_path('movie-placeholder.jpg') %>') %>">
+      <% end %>
+      <% if subs || !m.pricing_plan %>
+        <figcaption class="cp-caption">
+          <a href="/media/<%= m.number %>" class="play-video">Play</a>
+        </figcaption>
+      <% end %>
+    </figure>
+    <div class="cp-text">
+      <h4><a href="/media/<%= m.number %>"><%= m.title %></a></h4>
+      <span class="uk-text-small uk-text-muted">
+        <% if subs %>
+          $<%= subs.pricing_plan.price / 100.0 %>/<%= subs.pricing_plan.interval %><br/>
+          <a class="btn btn-success btn-subscribe">
+            Subcribe
+            <i class="fa fa-check-square-o" aria-hidden="true" ></i>
+          </a>
+        <% elsif m.pricing_plan %>
+          $<%= m.pricing_plan.price / 100.0 %>/<%= m.pricing_plan.interval %><br>
+          <a class="btn btn-danger btn-subscribe" href="<%= products_path(:product_ids => "a#{m.id}") %>">
+            <i class="fa fa-caret-square-o-right" aria-hidden="true" ></i>
+            Subcribe
+          </a>
+        <% else %>
+          Free Plan
+        <% end %>
+      </span>
+    </div>
+  </div>
+  <!-- Video Item End--> 
+</div>

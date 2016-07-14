@@ -1,0 +1,21 @@
+<div class="uk-panel media">
+  <h1>
+    <%= @media.title %>
+    <div class="uk-panel-badge uk-badge"><%= @media.category_name %></div>
+  </h1>
+  <div class="itemVideoEmbedded">
+    <div id='player-area'>
+      <%= @media.overlay_code.html_safe if @media.overlay_code.present? %>
+      <% if @media.embedded_code.present? %>
+        <desc><%= @media.embedded_code.html_safe %></desc>
+      <% else %>
+        <% if @media.file_url.length > 0 %>
+          <%= render 'media/player', media: @media %>
+        <% end %>
+      <% end %>
+    </div>
+    <% if @mobile %>
+      <a href="?flash">Switch to Flash player</a>
+    <% end %>
+  </div>
+</div>

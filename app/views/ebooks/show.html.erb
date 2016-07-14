@@ -1,0 +1,73 @@
+<div id="cp-main-content">
+  <section class="cp-blog-section pd-tb60">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-lg-12">
+          <!--Video Detail Outer Start-->
+          <div class="cp-video-detail-outer">
+            <div class="cp-text-holder">
+              <div class="row">
+                <div class="col-sm-3">
+                  <figure class="cp-thumb">
+                    <% if @ebook.picture.present? %>
+                      <img class="img-thumbnail" alt="" src="<%= @ebook.picture_url %>">
+                    <% else %>
+                      <img class="img-thumbnail" src="<%= asset_path('book-placeholder.png') %>">
+                    <% end %>
+                  </figure>
+                </div>
+                <div class="col-sm-9" style="text-align:left;">
+                  <h2><%= @ebook.title %></h2>
+                  <h3><strong>Author:</strong><br><%= @ebook.author %></h3>
+                  <a class="download" href="<%= @ebook.file_url %>">
+                    <img src="<%= asset_path('download-pdf.png') %>">
+                  </a>
+                  <div class="cp-watch-holer">
+                    <ul class="cp-meta-list">
+                      <li>EAN: <%= @ebook.ean %></li> <br>
+                      <li>ISBN: <%= @ebook.isbn %></li> <br>
+                      <li>Number of pages: <%= @ebook.number_of_pages %></li> <br>
+                      <li>Publication date: <%= @ebook.publication_date %></li> <br>
+                    </ul>
+                  </div>
+                  <br>
+                  <div class="panel">
+                    <%= @ebook.description.html_safe %>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <article class="cp-comments-holder">
+                <div id="disqus_thread"></div>
+                <script>
+                  var disqus_config = function () {
+                    this.page.url = '<%= "http://www.n2me.tv" + request.original_fullpath %>';
+                    this.page.identifier = '<%= @ebook.id %>';
+                  };
+                  
+                  (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    
+                    s.src = '//n2metv.disqus.com/embed.js';
+                    
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+              </article><!--Comments Holder End-->
+          </div>
+            <div class="cp-show-more-outer">
+              <a href="#">Show More</a>
+            </div>
+        </div><!--Video Detail Outer End-->
+
+      </div>
+        
+
+          </aside>
+    </div>
+      </div>
+    </div>
+  </section>
+</div>

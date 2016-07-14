@@ -1,0 +1,143 @@
+/*--- PLACE YOUR CUSTOM STYLES HERE ---*/
+
+/*--- Background Images ---*/
+.bg-shortcodes {
+    background-image: url(/frontpage/bg-shortcodes.jpg);  
+}
+.bg-light {
+    background-image: url(/frontpage/bg-light.jpg);  
+}
+
+.bg-shop-1 {
+    background-image: url(/frontpage/bg-shop-1.jpg);  
+}
+.bg-shop-2 {
+    background-image: url(/frontpage/bg-shop-2.jpg);  
+}
+
+.bg-app-1 {
+    background-image: url(/frontpage/bg-app-1.jpg);  
+}
+.bg-app-2 {
+    background-image: url(/frontpage/bg-app-2.jpg);  
+}
+.bg-app-3 {
+    background-image: url(/frontpage/bg-app-3.jpg);  
+}
+.bg-app-4 {
+    background-image: url(/frontpage/bg-app-4.jpg);
+}
+.bg-app-5 {
+    background-image: url(/frontpage/bg-app-5.jpg);
+}
+.bg-app-6 {
+    background-image: url(/frontpage/bg-app-6.jpg);
+}
+
+.bg-event-1 {
+    background-image: url(/frontpage/bg-event-1.jpg);  
+}
+.bg-event-2 {
+    background-image: url(/frontpage/bg-event-2.jpg);  
+}
+.bg-event-3 {
+    background-image: url(/frontpage/bg-event-3.jpg);  
+}
+
+.bg-img-1 {
+    background-image: url(/frontpage/bg-1.jpg); 
+}
+.bg-img-2 {
+    background-image: url(/frontpage/bg-2.jpg); 
+}
+.bg-img-3 {
+    background-image: url(/frontpage/bg-3.jpg); 
+}
+.bg-img-4 {
+    background-image: url(/frontpage/bg-4.jpg);  
+}
+.bg-img-5 {
+    background-image: url(/frontpage/bg-5.jpg); 
+} 
+.bg-img-6 {
+    background-image: url(/frontpage/bg-6.jpg);  
+}
+.bg-img-7 {
+    background-image: url(/frontpage/bg-7.jpg); 
+} 
+.bg-img-8 {
+    background-image: url(/frontpage/bg-8.jpg);  
+}    
+.bg-img-9 {
+    background-image: url(/frontpage/bg-9.jpg);  
+} 
+.bg-img-10 {
+    background-image: url(/frontpage/bg-10.jpg);  
+} 
+.bg-img-11 {
+    background-image: url(/frontpage/bg-11.jpg);  
+} 
+.bg-img-12 {
+    background-image: url(/frontpage/bg-12.jpg);  
+} 
+.bg-img-13 {
+    background-image: url(/frontpage/bg-13.jpg);  
+} 
+.bg-img-14 {
+    background-image: url(/frontpage/bg-14.jpg);  
+} 
+.bg-img-15 {
+    background-image: url(/frontpage/bg-15.jpg);  
+} 
+.bg-blue {
+    background-image: url(/frontpage/bg-blue.jpg);  
+} 
+
+.uk-slidenav-previous:before {
+  content: "\f104";
+  font-family: FontAwesome;
+  font-size: 60px;
+}
+.uk-slidenav-next:before {
+  content: "\f105";
+  font-family: FontAwesome;
+  font-size: 60px;
+}
+
+.uk-slidenav-position {
+  position: relative;
+}
+
+.uk-slidenav-position .uk-slidenav {
+  display: none;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  margin-top: -20px;
+}
+.uk-slidenav-position:hover .uk-slidenav {
+  display: block;
+}
+.uk-slidenav-position .uk-slidenav-previous {
+  left: 20px;
+}
+.uk-slidenav-position .uk-slidenav-next {
+  right: 20px;
+}
+
+.uk-slidenav-contrast {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.uk-slidenav-contrast:hover,
+.uk-slidenav-contrast:focus {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* Active */
+.uk-slidenav-contrast:active {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.uk-slidenav-position .row .previous, .uk-slidenav-position .row .next{
+    color: grey;
+}

@@ -1,0 +1,30 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://storefront.commerce.theplatform.com/storefront/web/Checkout?account=http://mps.theplatform.com/data/Account/2673532949&form=json&schema=1.4&token=SGYrNGIkpgVG5udcXBkGQVAaQIBG4MDY
+    body:
+      encoding: UTF-8
+      string: '{"oneStepOrder":{"paymentRef":"http://storefront.commerce.theplatform.com/storefront/data/PaymentInstrumentInfo/31742720","purchaseItemInfos":[{"productId":"http://data.product.theplatform.com/product/data/Product/22231758","quantity":1,"currency":"USD"},{"productId":"http://data.product.theplatform.com/product/data/Product/22226461","quantity":1,"currency":"USD"}],"properties":{"TestOrder":true}}}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '636'
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: '{"oneStepOrderResponse":{"asynchronous":false,"status":"Completed","providerOrderRef":"http://storefront.commerce.theplatform.com/storefront/data/OrderHistory/47690326","purchaseItems":[{"productId":"http://data.product.theplatform.com/product/data/Product/22231758","quantity":1,"providerItemRef":"http://order.commerce.theplatform.com/order/data/OrderItem/47690328","currency":"USD"},{"productId":"http://data.product.theplatform.com/product/data/Product/22226461","quantity":1,"providerItemRef":"http://order.commerce.theplatform.com/order/data/OrderItem/47690329","currency":"USD"}],"currency":"USD","errors":[],"orderTotal":29.98}}'
+    http_version: 
+  recorded_at: Mon, 22 Feb 2016 15:16:39 GMT
+recorded_with: VCR 3.0.1

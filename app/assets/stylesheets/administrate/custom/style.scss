@@ -1,0 +1,12 @@
+.pagination {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  li {
+    float: left;
+    margin: 5px;
+    &.active a {
+      color: #797979;
+    } 
+  }
+}

@@ -1,0 +1,17 @@
+#purchase-modal {
+  z-index: 400000;
+  h4 {
+    display: inline-block;
+  }
+  .modal-body {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+  .subscribe-btn {
+    margin: 0 auto;
+    float: none;
+    padding: 15px 30px;
+    font-size: 20px;
+  }
+}

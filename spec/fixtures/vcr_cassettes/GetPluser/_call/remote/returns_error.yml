@@ -1,0 +1,33 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://euid.theplatform.com/idm/web/Self/getSelf?form=json&schema=1.0&token=bad
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 06 Feb 2016 00:45:56 GMT
+      - Sat, 06 Feb 2016 00:45:56 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '201'
+      Server:
+      - Jetty(8.1.16.2)
+    body:
+      encoding: UTF-8
+      string: '{"isException":true,"responseCode":401,"description":"Invalid token","title":"com.theplatform.authentication.api.exception.InvalidTokenException","correlationId":"c81ac7db-fb8e-4ed1-8e2a-fa08724e20f8"}'
+    http_version: 
+  recorded_at: Sat, 06 Feb 2016 00:45:56 GMT
+recorded_with: VCR 3.0.1

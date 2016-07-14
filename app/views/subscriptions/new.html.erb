@@ -1,0 +1,103 @@
+<div class="new-subscription">
+  <div class="container">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="sub-panel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="header">
+              <h3>Confirm purchase</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row main">
+          <div class="col-sm-12">
+            <h4>
+              Buy these channels for <span class="red">USD <%= number_to_currency(@total_price / 100.0) %></span>?
+            </h4>
+            <%= form_for(@subscription, remote: true) do |f| %>
+              <input type="hidden" name="product_ids" value="<%= @products.map(&:id).join(',') %>">
+              <input type="hidden" name="media_ids" value="<%= @medias.map(&:id).join(',') %>">
+              <input type="hidden" id="stripe_token" name="stripe_token" value="">
+              <input type="hidden" id="stripe-public-key" value="<%= ENV['STRIPE_PUBLIC_KEY'] %>">
+
+              <div class="row form-row">
+                <div class="col-sm-6">
+                  <div class="field">
+                    <div class="field-label">First name:</div>
+                    <input type="text" name="first_name" id="first_name">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="field">
+                    <div class="field-label">Last name:</div>
+                    <input type="text" name="last_name" id="last_name">
+                  </div>
+                </div>
+              </div>
+              <div class="row form-row">
+                <div class="col-sm-9">
+                  <div class="field">
+                    <div class="field-label">Card Number:</div>
+                    <input type="text" name="first_name" id="card_number" required>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="field">
+                    <div class="field-label">CVV:</div>
+                    <input id="cvc" type="password" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row form-row">
+                <div class="col-sm-5">
+                  <div class="field">
+                    <div class="field-label">Expires On Month:</div>
+                    <select id="expire_month" class="form-control" required>
+                      <% 1.upto(12) do |m| %>
+                        <option value="<%= m %>"><%= m.to_s.rjust(2, '0') %></option>
+                      <% end %>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="field">
+                    <div class="field-label">Year:</div>
+                    <select id="expire_year" class="form-control" required>
+                      <% year = Date.today.year.to_s[-2..-1].to_i %>
+                      <% 10.times do |n| %>
+                        <option value="<%= year + n %>"><%= year + n %></option>
+                      <% end %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row form-row" id="stripe-error" style="display:none">
+                <div class="com-xs-12 alert alert-danger">
+                  <div class="col-sx-12">
+                    <strong></strong>
+                  </div>
+                </div>
+              </div>
+              <div class="row form-row checkout-row">
+                <div class="col-sm-8 remember-checkbox">
+                  <input type="checkbox">
+                  <span>Remember your payment information.</span>
+                </div>
+                <div class="col-sm-4">
+                  <div class="pull-right">
+                    <a href="#" class="btn btn-default checkout-btn js-stripe-checkout">
+                      <span class="text">BUY NOW</span>
+                      <span class="spinner" style="display:none">
+                        <i class="fa fa-spinner fa-spin"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

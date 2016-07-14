@@ -1,0 +1,30 @@
+<% content_for :head do %>
+  <script type="application/javascript" src="https://content.jwplatform.com/libraries/B2tmYadP.js"></script>
+<% end %>
+<div class="uk-panel media">
+  <h1>
+    <%= @media.title %>
+    <div class="uk-panel-badge uk-badge"><%= @media.category_name %></div>
+  </h1>
+  <div class="itemVideoEmbedded">
+    <div id='player-area'>
+      <% if @media.overlay.present? %>
+        <a href="<%= @media.overlay_link %>">
+          <img src="<%= @media.overlay %>" class="overlay">
+        </a>
+      <% end %>
+      <% if @media.file_url.nil? %>
+        <%= @media.description.html_safe %>
+      <% else %>
+        <% if @media.file_url.length > 0 %>
+          <%= render 'media/player' %>
+        <% else %>
+          <%= @media.description.html_safe %>
+        <% end %>
+      <% end %>
+    </div>
+    <% if @mobile %>
+      <a href="?flash">Switch to Flash player</a>
+    <% end %>
+  </div>
+</div>

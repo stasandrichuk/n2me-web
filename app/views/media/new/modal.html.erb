@@ -1,0 +1,5 @@
+<% if @media.embedded_code.present? %>
+  <%= @media.embedded_code.html_safe %>
+<% else %>
+  <%= render 'media/player', media: @media %>
+<% end %>

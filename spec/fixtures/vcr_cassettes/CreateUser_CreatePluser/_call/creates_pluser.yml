@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://euid.theplatform.com/idm/data/User/UBpRu2vqlRVlcA0H?account=http://mps.theplatform.com/data/Account/2673532949&form=json&schema=1.0&token=zBm3M7d2CChalDQWHOm2geAY4FCSEBDU
+    body:
+      encoding: UTF-8
+      string: '{"$xmlns":{"pluser":"http://xml.theplatform.com/auth/data/User"},"pluser$ownerId":"http://mps.theplatform.com/data/Account/2673532949","pluser$userName":"person2@example.com","pluser$email":"person2@example.com","pluser$password":"good_password"}'
+    headers:
+      User-Agent:
+      - tpdata/1.1.5
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 04 Feb 2016 02:16:55 GMT
+      - Thu, 04 Feb 2016 02:16:55 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Location:
+      - https://euid.theplatform.com/idm/data/User/UBpRu2vqlRVlcA0H/244111143
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '506'
+      Server:
+      - Jetty(8.1.16.2)
+    body:
+      encoding: UTF-8
+      string: '{"$xmlns":{"pluser":"http://xml.theplatform.com/auth/data/User"},"id":"https://euid.theplatform.com/idm/data/User/UBpRu2vqlRVlcA0H/244111143","guid":"HgCznACUpQC-_AC3vg5ZV4zkJNeozyfA","updated":1454552215000,"added":1454552215000,"ownerId":"http://mps.theplatform.com/data/Account/2673532949","addedByUserId":"urn:theplatform:auth:any","updatedByUserId":"urn:theplatform:auth:any","version":0,"locked":false,"pluser$userName":"person2@example.com","pluser$fullName":"","pluser$email":"person2@example.com"}'
+    http_version: 
+  recorded_at: Thu, 04 Feb 2016 02:16:55 GMT
+recorded_with: VCR 3.0.1

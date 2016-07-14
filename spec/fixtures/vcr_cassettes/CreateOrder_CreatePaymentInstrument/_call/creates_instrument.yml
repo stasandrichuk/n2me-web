@@ -1,0 +1,32 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://storefront.commerce.theplatform.com/storefront/web/Payment?account=http://mps.theplatform.com/data/Account/2673532949&form=json&schema=1.1&token=M6sL5oKOD4Iooxa0TClssZBCsICYwBB8
+    body:
+      encoding: UTF-8
+      string: '{"createPaymentInstrument":{"name":"Pass Through Card 965400838","paymentConfigurationId":"http://data.configuration.commerce.theplatform.com/configuration/data/PaymentConfiguration/12538","properties":{"CardNumber":"4111111111111111","CardName":"John
+        Doe","ExpirationYear":"2020","ExpirationMonth":"01","CardType":"Visa"},"billingAddress":{"regionCode":"WA","postalCode":"18121","countryCode":"US","addressLine1":"123
+        a st","addressLine2":"#400","city":"Seattle","fullName":"John Q Doe","phoneNumber":"1234567890"}}}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '127'
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: '{"createPaymentInstrumentResponse":"http://storefront.commerce.theplatform.com/storefront/data/PaymentInstrumentInfo/31742720"}'
+    http_version: 
+  recorded_at: Thu, 18 Feb 2016 21:23:20 GMT
+recorded_with: VCR 3.0.1

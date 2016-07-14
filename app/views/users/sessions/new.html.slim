@@ -1,0 +1,33 @@
+= render '/layouts/messages'
+.fb-login.text-center= link_to image_tag("fb.png", class: 'social-login-btn'), "/auth/facebook", class: 'social-login-btn'
+.twitter-login.text-center= link_to image_tag("twitter.png", class: 'social-login-btn'), "/auth/twitter", class: 'social-login-btn'
+OR
+h2 Log in
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .uk-form-row
+    .md-input-wrapper.md-input-filled
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'md-input'
+      .md-input-bar
+
+  .uk-form-row
+    .md-input-wrapper.md-input-filled
+      = f.label :password
+      = f.password_field :password, autocomplete: 'off', class: 'md-input'
+      .md-input-bar
+
+  .uk-form-row
+    .md-input-wrapper.md-input-filled
+      = f.label :promo_code
+      = f.text_field :promo_code, autocomplete: 'off', class: 'md-input'
+      .md-input-bar
+
+  .uk-margin-medium-top
+    = f.submit 'Sign in', class: 'md-btn md-btn-primary md-btn-block md-btn-large'
+
+  - if devise_mapping.rememberable?
+    .uk-margin-top
+      span.icheck-inline
+        = f.check_box :remember_me, "data-md-icheck" => ""
+        = f.label :remember_me, class: 'inline-label'

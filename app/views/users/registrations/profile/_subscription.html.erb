@@ -1,0 +1,55 @@
+<div class="list uk-active subcriptions">
+  <% if current_user.subscriptions.size == 0 && current_user.start_trial_date.present?  %>
+    <% if current_user.trial_expired? %>
+      <p class="alert alert-danger text-center"> Your 7 Days Free Trial has been expired. Please subscribe to continue.</p>
+    <% else %>
+      <p class="alert alert-success text-center"> You are currently on "7 Days Free Trial". You have full access to all media for 7 Days.</p>
+    <% end %>
+  <% end %>
+  <div class="row header col-sm-12">
+    <h1> Subscribed Channels:</h1>
+  </div>
+  <div data-uk-grid class="row uk-grid uk-grid-width-small-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-4">
+    <div class="item basic"> 
+      <div class="cp-video-item">
+        <figure class="cp-thumb no-background">
+          <%= image_tag("basic-plan.png", alt: "")%>
+        </figure>
+        <div class="cp-text">
+          <h4>Free</h4>
+          <span class="uk-text-small uk-text-muted">
+            <a class="btn btn-success btn-subscribe">
+              Subcribed
+              <i class="fa fa-check-square-o" aria-hidden="true" ></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <% @subscriptions.order("product_id asc").each do |subs| %>
+      <%if subs.product %>
+        <%= render :partial => "users/registrations/profile/product", :locals => {:product => subs.product, :subs => subs } %>
+      <% end %>
+      <% subs.media.each do |m| %>
+        <%= render :partial => "users/registrations/profile/media", :locals => {:m => m, :subs => subs} %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="row header col-sm-12">
+    <h1> Subscribe to a Package:</h1>
+  </div>
+  <div data-uk-grid class="row uk-grid uk-grid-width-small-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-4">
+    <% current_user.subscribe_to_products.each do |product| %>
+      <%= render :partial => "users/registrations/profile/product", :locals => {:product => product, :subs => nil } %>
+    <% end %>
+  </div>
+  <div class="row header col-sm-12">
+    <h1> Buy More Channels </h1>
+  </div>
+  <div data-uk-grid class="row uk-grid uk-grid-width-small-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-4">
+    <% current_user.subscribe_to_channels.each do |m| %>
+      <%= render :partial => "users/registrations/profile/media", :locals => {:m => m, :subs => nil} %>
+    <% end %>
+  </div>  
+
+</div>

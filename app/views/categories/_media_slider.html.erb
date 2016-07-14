@@ -1,0 +1,49 @@
+<% is_game = @category.title.match("Games") ||(@category.category && @category.category.title.match("Games")) ? true : false %>
+<div class="cp-featured-block cp-comedy-video">
+      <div class="row">
+        <div class="col-md-12 cp-heading-outer">
+          <h2>All <%= @category.title %></h2>
+          <ul class="cp-listed">
+              <li class="view-all"><a href="<%= category_media_path(@category.number) %>">View All</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+        <div class="featured-blocks <%= is_game ? 'categories-list' : 'videos-list' %> uk-slidenav-position">
+            <div class="row">
+              <div class="row__inner">
+                <% @media.each do |m| %>
+                  <div class="tile">
+                    <div class="tile__media">
+                      <% m = m.becomes(Game) if is_game %>
+                      <% if m.thumbnail_url.present? %>
+                        <% if @category.title.match("Movies") %>
+                          <img alt="" src="<%= m.thumbnail_url %>" class="makemetaller">
+                        <% else %>
+                        <img alt="" src="<%= m.thumbnail_url %>">
+                        <% end %>
+                      <% else %>
+                        <img src="<%= asset_path('movie-placeholder.jpg') %>">
+                      <% end %>
+                    </div>
+                    <div class="tile__details">
+                      <div class="tile__title">
+                        <figcaption class="cp-caption">
+                          <a class="play-video" href="/media/<%= m.number %>">Play</a>
+                          <% if !m.category_name.match("Events") %>
+                            <div class="cp-text">
+                              <h4><%= m.title %></h4>
+                            </div>
+                          <% end %>
+                        </figcaption>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <a href="" class="previous uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slider-item="previous"></a>
+              <a href="" class="next uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slider-item="next"></a>
+            </div>
+        </div>
+    </div>
+</div>

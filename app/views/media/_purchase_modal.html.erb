@@ -1,0 +1,14 @@
+<div id="purchase-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Subscribe Now</h4>
+      </div>
+      <div class="modal-body text-center">
+        <% p_path = @media.product_ids.present? ? products_path(:product_ids => @media.product_ids.join(',')) : products_path %>
+        <a href="<%= p_path %>" class="file-btn subscribe-btn btn btn-danger">Subscribe to get more</a>
+      </div>
+    </div>
+  </div>
+</div>

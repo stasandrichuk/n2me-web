@@ -1,0 +1,146 @@
+<% content_for :head do %>
+  <script type="application/javascript" src="https://content.jwplatform.com/libraries/B2tmYadP.js"></script>
+<% end %>
+
+<% if !current_user || !current_user.can_view_media?(@media) %>
+  <span class="is-guest-user"></span>
+<% end %>
+
+<div id="cp-main-content">
+  <section class="cp-blog-section pd-tb60">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-lg-12">
+          <!--Video Detail Outer Start-->
+          <div class="cp-video-detail-outer">
+            <div class="cp-video-outer2">
+              <% if @media.embedded_code.present? %>
+                <%= @media.embedded_code.html_safe %>
+              <% else %>
+                <%= render 'media/player', media: @media %>
+              <% end %>
+            </div>
+            <div class="cp-text-holder">
+              <div class="cp-top">
+                <h4><%= @media.title %></h4>
+                <span class="viewer"><a href="#">Video Settings  <i class="fa fa-gear"></i></a></span>
+              </div>
+              <div class="cp-watch-holer mb-0">
+                <ul class="cp-watch-listed">
+                  <li>
+                    <% if in_favorites_list(@media, current_user) %>
+                      <a href="/favorite_media/<%= @media.number %>"
+                         id="remove-favorite"
+                         data-method="delete"
+                         data-sweet-alert-confirm="Remove from favorites?">
+                        <i class="fa fa-heart"></i>
+                        Remove from Favorites
+                      </a>
+                    <% else %>
+                      <a href="/favorite_media?media_number=<%= @media.number %>"
+                         id="add-favorite"
+                         data-method="post"
+                         data-sweet-alert-confirm="Add to favorites?">
+                        <i class="fa fa-heart"></i>
+                        Add to Favorites
+                      </a>
+                    <% end %>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-film"></i> Record
+                    </a>
+                  </li>
+                  <% if @media.languages.any? %>        
+                    <li class="dropdown">
+                       <button class="btn btn-default dropdown-toggle" type="button" id="cp-dropdown-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Language
+                      </button>
+                        <ul class="dropdown-menu" aria-labelledby="cp-dropdown-menu">
+                          <% @media.languages.each do |m| %>
+                            <li><a href="<%= media_path(m.number) %>"><%= m.language || 'English' %></a></li>
+                          <% end %>
+                        </ul>
+                    </li>
+                  <% end %>
+                </ul>
+                <div class="cp-viewer-outer">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i> <br />
+                  <a href="#">Based on 109 Reviews</a>
+
+                </div>
+                                      
+              </div>
+              <!-- Start related videos -->
+              <div class="cp-top mt40">
+                <h4>Related Channels</h4>
+              </div>
+              <div class="cp-watch-holer related-videos">
+                <div class="uk-slidenav-position">
+                    <div class="row">
+                      <div class="row__inner">
+                        
+                        <% @media.related_items.each do |m| %>
+                          <div class="tile">
+                            <div class="tile__media">
+                              <a href="/media/<%= m.number %>">
+                                <%= image_tag m.thumbnail_url %>
+                              </a>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                      <a href="" class="previous uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slider-item="previous"></a>
+                      <a href="" class="next uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slider-item="next"></a>
+                    </div>
+                </div>
+              </div>
+              <!-- End related videos -->
+
+              <!--Comments Holder Start-->
+              <article class="cp-comments-holder">
+                <div id="disqus_thread"></div>
+                <script>
+                  var disqus_config = function () {
+                    this.page.url = '<%= "http://www.n2me.tv" + request.original_fullpath %>';
+                    this.page.identifier = '<%= @media.number %>';
+                  };
+                  
+                  (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    
+                    s.src = '//n2metv.disqus.com/embed.js';
+                    
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+              </article>
+              <!--Comments Holder End-->
+              
+            </div>
+
+          </div><!--Video Detail Outer End-->
+
+        </div>
+        
+
+      </div>
+      </div>
+    </div>
+  </section>
+</div><!--Main Content End-->
+<%= render 'media/purchase_modal' %>
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function(e){
+      var slider = new Slider()
+    });
+  </script>
+<% end %>
+      

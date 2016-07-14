@@ -1,0 +1,50 @@
+<div class="container">
+    <!--Outer Holder Start-->
+        <div class="cp-outer-holder cp-featured-video cp-comedy-video">
+          <div class="row">
+            <div class="col-md-12 cp-heading-outer">
+              <h2>Ebooks</h2>
+            </div>
+          </div>
+          <div class="ebooks-list">
+            <% @ebooks.in_groups_of(4).each do |group| %>
+              <div class="row">
+                <% group.compact.each do |book| %>
+                  <div class="col-sm-3"> 
+                    <!-- Video Item Start-->
+                    <div class="cp-video-item">
+                      <figure class="cp-thumb">
+                        <% if book.picture.present? %>
+                          <img class="img-thumbnail" alt="" src="<%= book.picture_url %>">
+                        <% else %>
+                          <img class="img-thumbnail" src="<%= asset_path('book-placeholder.png') %>">
+                        <% end %>
+                        <figcaption class="cp-caption">
+                          <a href="<%= ebook_path(book) %>" class="play-video">View</a>
+                        </figcaption>
+                      </figure>
+                      <div class="cp-text">
+                        <h4><a href="<%= ebook_path(book) %>"><%= book.title %></a></h4>
+                        <ul class="cp-meta-list">
+                          <li>Author: <%= book.author %></li>
+                          <li>Number of pages: <%= book.number_of_pages %></li>
+                          <li>ISBN: <%= book.isbn %></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- Video Item End--> 
+                  </div>
+                <% end %>
+              </div>
+              <br>
+              <br>
+            <% end %>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 text-center">
+              <%= paginate(@ebooks) %>
+            </div>
+          </div>
+        </div>
+    <!--Outer Holder End-->
+</div>

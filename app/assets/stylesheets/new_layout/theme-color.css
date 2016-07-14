@@ -1,0 +1,22 @@
+/*===========================================================================*/
+						/*Theme Color CSS*/
+/*===========================================================================*/
+.cp-navigation-row,.cp-ft-widget-countdown,.widget-form form [type="submit"],a.cp-btn-style1:before,a.cp-btn-style1:after,a.cp-btn-style2:before,a.cp-btn-style2:after,.cp-blog-item .cp-icon-box,.mp3-player-box .audioplayer-bar-played
+,.mp3-player-box .audioplayer-playing .audioplayer-playpause a:before, .audioplayer-playing .audioplayer-playpause a:after,.mp3-player-box .audioplayer-volume-adjust > div,.mp3-player-box .audioplayer-volume-button a,.cp-form-box .inner-holder .btn-submit,.cp-newsletter-form
+,.cp-get-in-outer,.cp-range-slider-holder .cp-filter,.cp-tab-box .nav-tabs > li.active > a,.cp-tab-box.nav-tabs > li.active > a:hover,.cp-tab-box .nav-tabs > li.active > a:focus,.cp-tab-box .nav-tabs > li a:hover,.cp-sidebar .cp-reviews li:before{
+	background-color: #000000;
+}
+.cp-mega-menu .drop-down li:hover>a,.cp-video-item .cp-text h4 a:hover,.cp-listed li a,.cp-most-listed .cp-text .cp-meta-list span,.cp-listed li + li:before,.cp-latest-item .cp-text .cp-top h4 a
+,.widget ul li:hover > a,.cp-ft-nav li:hover a,.widget-recent-post .cp-holder .cp-text h5 a,.cp_side-navigation .dropdown-menu > li:hover a,.cp_side-navigation li a:hover,.cp_side-navigation li a:focus
+,.cp-inner-banner-holder .breadcrumb > li,.cp-inner-banner-holder .breadcrumb > li a,.cp-inner-banner-holder .breadcrumb > li + li::before,.cp-pagination-row .pagination li a,.cp-pagination-row .pagination li span,.cp-pagination-row .pagination li a
+,ul.cp-meta-post-list li,ul.cp-meta-post-list li a,.cp-blog-item h3 a:hover,.cp-audio-item .audioplayer-playpause a,.mp3-player-box .audioplayer,.mp3-player-box .audioplayer:not(.audioplayer-playing) .audioplayer-playpause a,.cp-author-info-holder .cp-text h4 a,.cp-author-info-holder .cp-meta-list li
+,.cp-watch-listed > li a:hover,.cp-watch-listed > li #cp-dropdown-menu:hover,.cp-comments-holder h4,.cp-show-more-outer a:hover,.cp-form-box2 .cp-social-links li:hover a,.cp-pro-price,.cp-text h4 a:hover,.widget-recent-post .cp-text .cart-btn
+,.cp-product-list .cp-text .price-holder,.cp-product-list .cp-text .price-holder span,.cp_side-navigation .cp-right-outer form label,.cp-upload-outer .cp-listed li .fa,.cp_side-navigation .cp-upload-outer .cp-listed li a:hover,#cp-close-btn a .fa,.cp-heading-outer .dropdown .show-btn,.cp-heading-outer .dropdown .btn .fa{
+	color: #009cff;
+}
+.cp-mega-menu .drop-down{
+	border-bottom-color: #009cff;
+}
+a.cp-btn-style1,.cp-blog-item,.mp3-player-box .audioplayer:not(.audioplayer-mute) .audioplayer-volume-button a:after,.cp-error-holder a.cp-btn-style2,.cp-form-box2 .cp-social-links li:hover a{
+	border-color: #009cff;
+}

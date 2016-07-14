@@ -1,0 +1,54 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="UTF-8"]
+    meta[name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+    meta[name="msapplication-tap-highlight" content="no"]
+    = csrf_meta_tags
+    title N2me
+    = stylesheet_link_tag 'application', media: 'all'
+    -if content_for? :head
+      = content_for :head
+  body.sidebar_main_open.sidebar_main_swipe
+    .desktop-navbar.n2me-navbar
+      = render 'layouts/new/navbar'
+    #header_main.mobile-navbar
+      = render 'layouts/new/navbar'
+
+    / aside#sidebar_main
+    /   .sidebar_main_header
+    /     .sidebar_logo
+    /       a.sSidebar_hide[href=root_path]
+    /         img[src="/img/logo_main.png" alt="" height="15" width="71"]
+    /       a.sSidebar_show[href=root_path]
+    /         img[src="/img/logo_main_small.png" alt="" height="32" width="32"]
+    /   .menu_section
+    .uk-width-1-1
+      
+      -if content_for? :page_heading 
+        #page_heading
+          = content_for :page_heading
+      
+      #page_content_inner
+        - if current_user.present?
+          .uk-alert
+            | Welcome 
+            = current_user.display_name
+        = render '/layouts/messages'
+        -if content_for? :header
+          h3.heading_b.uk-margin-bottom
+            = content_for :header
+        -if content_for? :body
+          = content_for :body
+        -else
+          .md-card
+            .md-card-content
+              = yield
+    
+    = render '/layouts/new/footer'
+    
+    = javascript_include_tag 'application'
+    -if content_for? :javascript
+      = content_for :javascript
+    = render '/layouts/style_switcher'

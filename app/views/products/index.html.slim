@@ -1,0 +1,110 @@
+- content_for :head do
+  = stylesheet_link_tag('products/style.css')
+
+.pricing
+  .cp_inner-banner
+    .container
+      .cp-inner-banner-holder
+        h2
+          | Cart:
+          strong Choose a Package
+        /! Breadcrumb Start
+        ul.breadcrumb
+          li
+            span
+              a href="#"  Buy Indiviudal Channels starting @ $0.99
+        /! Breadcrumb End
+  /! Main Content Start
+  #cp-main-content
+    section.cp-section
+      .container
+        section.cart
+          .container
+            .row
+              .col-md-8
+                - subscribed_product_ids = current_user.subscribed_products.map{|x| x.id}
+                - @products.each_with_index do |p, i|
+                  .cart-item.product [data-uk-grid]
+                    .item-image-container.uk-width-small-1-3.uk-width-medium-1-3.uk-width-large-1-3
+                      - if p.picture.present?
+                        = image_tag(p.picture_url, alt: "")
+                      - else
+                        = image_tag("product-placeholder.jpg", alt: "")
+                    .item-details.uk-width-small-2-3.uk-width-medium-2-3.uk-width-large-2-3
+                      h2= p.title
+                      .description= p.description
+                      .buttons
+                        - if subscribed_product_ids.include?(p.id)
+                          a.btn.btn-success
+                            | Subcribed
+                            i.fa.fa-check-square-o.right aria-hidden="true"
+                        - else
+                          a.btn.btn-danger.btn-subcribe data-product="#{p.id}"
+                            i.fa.fa-caret-square-o-right aria-hidden="true" 
+                            | Subcribe
+                          input.checkbox name="product_#{p.id}" type="checkbox" value="1" data-product="#{p.id}"
+                      .price
+                        = "#{p.price} / #{p.pricing_plan.interval.titlecase}"
+                      a.item-action href="#"  See full Channel Lineup
+                    .clear
+                .panel.panel-default
+                  #headingTwo.panel-heading role="tab" 
+                    h4.panel-title.text-center.collapsed aria-controls="collapseTwo" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo" role="button" 
+                      | Want more? Check out our A la carte channels:
+                      a href="#"
+                        | Add individual Channels
+                  #collapseTwo.panel-collapse.collapse aria-labelledby="headingTwo" role="tabpanel" 
+                    .panel-body.uk-grid.uk-grid-width-small-1-3.uk-grid-width-medium-1-4.uk-grid-width-large-1-4 style="border:none;"
+                      - subscribed_media_ids = current_user.subscribed_media.map{|x| x.id}
+                      - @additional_products.compact.each do |p|
+                        .cart-item.medium
+                          .item-image-container
+                            - if p.picture.present?
+                              = image_tag(p.thumbnail_url, class: "img-responsive", alt: "")
+                            - else
+                              = image_tag("product-placeholder.jpg", class: "img-responsive", alt: "")
+                          .item-details
+                            h5= p.title
+                            .description= p.description
+                            .buttons
+                              - if subscribed_media_ids.include?(p.id)
+                                a.btn.btn-success
+                                  i.fa.fa-check-square-o.right aria-hidden="true"
+                              - else
+                                a.btn.btn-danger.btn-subcribe title="Subcribe" data-product="a#{p.id}"
+                                  i.fa.fa-caret-square-o-right aria-hidden="true" 
+                                input.checkbox name="product_a#{p.id}" type="checkbox" value="1" data-product="a#{p.id}"
+
+                            .price
+                              = "#{p.price} / #{p.pricing_plan.interval.titlecase}"
+              .col-md-4.cart-items
+                .cart_totals
+                  h5 Your Order
+                  table cellspacing="0" 
+                    tbody
+                      tr.cart-total
+                        th Total
+                        td
+                          strong
+                            span.amount $0
+                a.btn.btn-primary.btn-md.btn-appear.btn-cart-checkout href="#" 
+                  span
+                    | Place Your Order
+                    i.ion-ios-arrow-forward
+                p.bold Free 7 Day Trial!
+                p.small-print
+                  | By clicking 'Place your order', you agree to the
+                  a.highlight href="#" 
+                    | Terms &amp;
+                    br
+                    | Conditions
+
+- content_for :javascript do
+  = javascript_include_tag :new_layout
+
+  javascript:
+    cart = new Cart({
+      products: #{@json_products.to_json.html_safe},
+      userAgent: #{request.variant.first.to_json.html_safe},
+      selectedProducts: #{@product_ids.to_json.html_safe}
+    })

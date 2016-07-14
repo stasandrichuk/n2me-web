@@ -1,0 +1,88 @@
+<footer class="cp_footer"> 
+  <!--Instagram Section Start-->
+      <% if current_user.present? && current_user.recently_viewed_media.count > 0 %>
+        <section class="cp-instagram-section">
+          <div class="cp-ins-text">
+            <h4>Recently Watched</h4>
+            <i class="fa fa-history"></i>
+          </div>
+          <ul class="cp-instagram-listed">
+            <% current_user.recently_viewed_media(8).each do |m| %>
+              <% m = m.becomes(Game) if m.is_a_game %>
+              <li>
+                <figure class="cp-ins-item">
+                  <a href="/media/<%= m.number %>">
+                    <img src="<%= m.thumbnail_url %>">
+                  </a>
+                </figure>
+              </li>
+            <% end %>
+          </ul>
+        </section><!--Instagram Section End-->
+      <% end %>
+    <!--Third Section Start-->
+    <section class="cp-ft-third-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 col-sm-5 col-xs-12"> <strong class="cp-ft-logo">
+            <a href="/">
+              <img src="<%= asset_path('new_layout/cp-logo2.png') %>">
+            </a></strong> </div>
+          <div class="col-md-7 col-sm-7 col-xs-12">
+            <ul class="cp-ft-dropdown-listed">
+              <li>
+                <% if @media.is_a?(Medium) && @media.respond_to?(:languages) %>
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Language: <%= current_language %> <span class="caret"></span> </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <% @media.languages.each do |m| %>
+                        <li><a href="<%= media_path(m.number) %>"><%= m.language || 'English' %></a></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                  <% session[:language] = @media.language %>
+                <% else %>
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Language: <%= current_language %> <span class="caret"></span> </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <% Medium.languages.each do |language| %>
+                        <li><a href="<%= url_for(params.merge(:language => language))%>"><%= language %></a></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Parental Controls: Off <span class="caret"></span> </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><a href="#">On</a></li>
+                    <li><a href="#">Off</a></li>
+                    <li><a href="#">Configure</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="/profile#recently-watched"><i class="fa fa-hourglass-start"></i>History</a></li>
+              <li><a href="#"><i class="fa fa-question-circle"></i>Help</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Third Section End--> 
+    
+    <!--Copyright Section Start-->
+    <section class="cp-copyright-section">
+      <div class="container">
+        
+        <nav class="cp-ft-nav cp-ft-nav2">
+          <ul>
+        
+            <li>© <%= Date.today.year %> <a href="/">SuperCloud Inc</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <!--Copyright Section End--> 
+    
+  </footer>

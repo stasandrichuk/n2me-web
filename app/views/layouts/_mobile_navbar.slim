@@ -1,0 +1,96 @@
+nav.uk-navbar
+  .uk-visible-small data-uk-dropdown="{mode:'click'}"
+    a.uk-navbar-toggle href="#" data-uk-dropdown=""
+    .uk-dropdown
+      ul.uk-navbar-nav.user_actions.mobile-menu
+        li
+          a href=products_path
+            i.fa.uk-icon-credit-card
+            |  SUBSCRIBE
+        li
+          a href='/categories/1422405886'
+            i.fa.uk-icon-tv
+            |  International
+        li
+          a href=categories_path
+            i.fa.uk-icon-tv
+            |  Live TV &amp; Movies
+        li
+          a href=music_path
+            i.fa.uk-icon-music
+            |   MUSIC
+        li
+          a href='/categories/1422405926'
+            i.fa.uk-icon-gamepad
+            |   GAMES
+        li
+          a href="/categories/1423429520"
+            i.fa.uk-icon-calendar
+            |   EVENTS
+        
+
+  ul.uk-navbar-nav.user_actions.desktop-menu
+    li
+      a.header-logo-link[href=root_path]
+        = image_tag image_path('n2me-logo-box.png'), alt: 'home', class: 'header-logo-img uk-hidden-small'
+        = image_tag image_path('n2me-logo-box.png'), alt: 'home', class: 'header-logo-img uk-visible-small', style: 'width: 130px;'
+    li.search-icon
+      a href="#"
+        i.fa.uk-icon-search
+    li.menu.uk-hidden-small
+      a href=products_path
+        i.fa.uk-icon-credit-card
+        |   SUBSCRIBE
+    li.menu.uk-hidden-small.browse data-uk-dropdown=""
+      a href=categories_path 
+        i.fa.uk-icon-tv
+        |  Live TV & Movies
+      .uk-dropdown.uk-dropdown-width-2
+        .uk-grid.uk-dropdown-grid
+          - @root_categories.in_groups(2).each do |group|
+            .uk-width-1-2
+              - group.compact.each do |c|
+                  .uk-panel
+                    a href=category_path(c.number)
+                      = c.title
+    li.menu.uk-hidden-small
+      a href=music_path
+        i.fa.uk-icon-music
+        |   MUSIC
+    li.menu.uk-hidden-small
+      a href='/categories/1422405926'
+        i.fa.uk-icon-gamepad
+        |   GAMES
+    li.menu.uk-hidden-small
+      a href="/categories/1423429520"
+        i.fa.uk-icon-calendar
+        |   EVENTS
+    
+
+  .uk-navbar-flip
+    ul.uk-navbar-nav.user_actions
+      li
+        a#full_screen_toggle.user_action_icon.uk-visible-large[href="#"]
+          i.material-icons.md-24.md-light
+            | 
+      -if signed_in?
+        li[data-uk-dropdown="{mode:'click',pos:'bottom-right'}"]
+          a.user_action_image[href="#"]
+            img.md-user-image[src=current_user.avatar alt=""]
+          .uk-dropdown.uk-dropdown-small
+            ul.uk-nav.js-uk-prevent
+              li
+                = link_to 'My profile', profile_path
+              li
+                = link_to 'My Subscription', purchases_path
+              li
+                = link_to 'Sign out', destroy_user_session_path, method: :delete
+nav.search-bar
+  form.uk-form action=search_path
+    fieldset
+      select.uk-margin-small-top name="category"
+        = options_for_select([['All Content', '']].concat(@search_categories.map { |c| [c.title, c.number] }), params[:category])
+      input.uk-margin-small-top type="text" placeholer="Search..." name="query" value=params[:query]
+  
+
+

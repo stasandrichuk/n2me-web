@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta charset="UTF-8" />
+     <meta content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+     <meta content="no" name="msapplication-tap-highlight" />
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <%= csrf_meta_tags %>
+     <title>N2ME</title>
+     <link href='//fonts.googleapis.com/css?family=Ubuntu:100,400,700' rel='stylesheet' type='text/css'>
+     <link rel="shortcut icon" href="/favicon.ico">
+     <%= content_for(:head) if content_for? :head %>
+     <%= stylesheet_link_tag 'new_layout', media: 'all' %>
+     
+     <%= javascript_include_tag('https://js.stripe.com/v2') if @activate_stripe %>
+     <%= javascript_include_tag(:new_layout) unless @skip_javascript %>
+  </head>
+  <body>
+    <%= render 'layouts/new/navbar_new' %>
+    <div id="wrapper">
+      <%= render 'layouts/new/breadcrumbs' %>
+      <%= render 'layouts/new/flash' %>
+      <!--Main Content Start-->
+      <div id="cp-main-content">
+        <section class="cp-section pd-tb60">
+          <%= yield %>
+        </section>
+        <%= render 'layouts/new/footer' %>
+      </div>
+    </div>
+
+    <% if content_for? :javascript %>
+      <%= content_for :javascript %>
+    <% end %>
+  </body>
+</html>

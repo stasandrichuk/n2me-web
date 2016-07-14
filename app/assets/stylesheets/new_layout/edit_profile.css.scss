@@ -1,0 +1,84 @@
+.gray-card {
+  background-color: #292929;
+  padding: 20px;
+}
+
+.edit-profile {
+  h3 {
+    color: #fafafa;
+    border-bottom: 1px solid #2f3235;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-left: 15px;
+  }
+  label {
+    color: #d0dbdf;
+    font-weight: normal;
+  }
+  input[type='text'],input[type='password'] {
+    color: #828485;
+    padding: 6px 10px !important;
+    border-radius: 3px !important;
+    border-color: rgba(210, 210, 210, 0.12) !important;
+    background-color: #3f4143 !important;
+    &:focus, &:active {
+      color: #d0dbdf;
+    }
+  }
+  .bootstrap-tagsinput{
+    background-color: #3f4143;
+    border-color: rgba(210, 210, 210, 0.12);
+    width: 100%;
+    border-radius: 3px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    input{
+      padding: 3px 5px !important;
+    }
+    .tag{
+      padding-top: 5px;
+      padding-bottom: 8px;
+      background-color: #292929;
+    }
+    ul.dropdown-menu{
+      background-color: #292929;
+      li a{
+        color: #d0dbdf;
+      }
+      .active > a, .active > a:hover, .active > a:focus {
+        background-color: #3f4143;
+        background-image: none;
+      }
+    }
+  }
+  .buttons{
+    border-top: 1px solid #2f3235;
+    padding-top: 20px;
+    .md-btn{
+      float: right;
+      text-transform: none;
+      margin-right: 15px;
+    }
+  }
+  .red-btn {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+    background-color: #da314b;
+    color: #ffffff;
+    text-transform: none;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 12px;
+    vertical-align: middle;
+    line-height: 28px;
+    min-height: 30px;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  p.unhappy {
+    color: #9A9A9A;
+    margin: 10px 0;
+  }
+}

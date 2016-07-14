@@ -1,0 +1,27 @@
+.login_page .user_avatar {
+  width: 235px;
+  height: 55px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 1%;
+  background-image: image-url("n2metv-t.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 192), only screen and (min-resolution: 192dppx), only screen and (min-resolution: 2dppx) {
+  .login_page .user_avatar {
+    background-size: 235px 55px;
+  }
+  .md-card .md-card-content.large-padding {
+    .login_heading {
+      margin-left: -24px;
+      margin-right: -24px;
+    }
+  }
+}
+#login_form {
+  background: #fff;
+}
+.social-login-btn{
+  width: 100%;
+}

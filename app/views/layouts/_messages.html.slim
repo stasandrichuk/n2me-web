@@ -1,0 +1,5 @@
+- flash.each do |name, msg|
+  - if msg.present?
+    .uk-alert[class=(name == 'alert' ? 'uk-alert-danger' : 'uk-alert-info') data-uk-alert='']
+      a.uk-alert-close.uk-close[href="#"]
+      = msg

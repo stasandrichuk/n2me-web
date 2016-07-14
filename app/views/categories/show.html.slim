@@ -1,0 +1,40 @@
+.content
+  .uk-container.uk-container-center
+    .uk-width-1-1
+      h2= @category.title
+    - if @category.categories.any?
+        .nested-categories
+          - columns_count = define_columns_count(@category.categories.count)
+          - @category.categories.in_groups_of(columns_count) do |group|
+            .uk-grid
+              - group.compact.each do |cat|
+                div class="uk-width-1-#{columns_count}"
+                  a href=category_path(cat.number)
+                    - if cat.thumbnail_url.present?
+                      img.uk-thumbnail src=cat.thumbnail_url
+                    - else
+                      img.uk-thumbnail src=asset_path('product-placeholder.jpg')
+                    h5= cat.title
+    - @media.in_groups_of(4).each do |group|
+      .uk-grid
+        - group.each do |m|
+          - next unless m
+          .uk-width-1-4
+            a href=media_path(m.number)
+              - if m.thumbnail_url.present?
+                img.uk-thumbnail src=m.thumbnail_url
+              - else
+                img src=asset_path('movie-placeholder.jpg')
+              h5= m.title
+      hr
+    - if @media.size >= MPX::RemoteResource::PER_PAGE
+      .uk-grid
+        .uk-width-1-1
+          - if params[:page].to_i >= 2
+            a.uk-button href="?page=#{params[:page].to_i - 1}" Prev page
+          div style="float:right"
+            a.uk-button href="?page=#{(params[:page] || 1).to_i + 1}" Next page
+
+
+
+

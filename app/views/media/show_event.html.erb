@@ -1,0 +1,116 @@
+
+<% content_for :javascript do %>
+  <script type="application/javascript" src="https://content.jwplatform.com/libraries/B2tmYadP.js"></script>
+<% end %>
+<% if !current_user || !current_user.can_view_media?(@media) %>
+  <span class="is-guest-user"></span>
+<% end %>
+<div class="uk-panel media">
+  <h1>
+   <% if @hasCurrentEvent %>
+     <%= @currentEvent.title %>
+   <% else %>
+     <%= @media.title %>
+   <% end %>
+    <div class="uk-panel-badge uk-badge"><%= @media.category_name %></div>
+  </h1>
+  <% if @hasCurrentEvent %>
+  <div class="itemVideoEmbedded">
+    <div id='player-area'>
+          <%= render 'media/player_event', media: @media, event: @currentEvent %>
+    </div>
+    <% if @mobile %>
+      <a href="?flash">Switch to Flash player</a>
+    <% end %>
+  </div>
+  <% else %>
+    <% if @hasNextEvent %>
+    <h2>LIVE PPV EVENT</h2>
+    <div class="eventdetails row">
+      <div class="col-md-4 col-lg-4">
+        <h2><%= @nextEvent.title %></h2>
+        <%= @nextEvent.description %>
+      </div>
+      <div class="col-md-4 col-lg-4 centerme">
+        <%= @nextEvent.start_date.strftime("%m/%d/%Y %H:%M") %>
+        <div id="countdown"></div>
+        <div id="event_start" style="display: none;"><%= @nextEvent.start_date.strftime("%m/%d/%Y %H:%M") %></div>
+        <div id="current_date" style="display: none;"><%= Time.now.strftime("%m/%d/%Y %H:%M") %></div>
+      </div>
+      <div class="col-md-4 col-lg-4 rightme">
+        <div id="event_price">$<%= '%.2f' % (@nextEvent.price / 100.0) %></div>
+        <button id="purchase" style="color: #000;">Buy Now</button>
+      </div>
+    </div>
+
+    <form method="get" action="<%= new_subscription_path %>" id="purchaseform">
+    <input type="hidden" name="product_ids[]" value="<%= @nextEvent.product_id %>"/>
+    </form>
+
+    <script>
+
+    window.onload = function () {
+      $("#purchase").click(function () {
+        $("#purchaseform").submit();
+      });
+
+      var current_date = new Date($("#current_date").text());
+      var start_date = new Date($("#event_start").text());
+
+      window.setInterval(function () {
+        var delta = Math.abs(start_date.valueOf() - current_date.valueOf()) / 1000;
+
+        // calculate (and subtract) whole days
+        var days = Math.floor(delta / 86400);
+        delta -= days * 86400;
+
+        // calculate (and subtract) whole hours
+        var hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+
+        // calculate (and subtract) whole minutes
+        var minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+
+        // what's left is seconds
+        var seconds = delta % 60;
+
+        $("#countdown").text(days + " days " + hours + "h " +
+          minutes + "m " + seconds + "s");
+
+        current_date.setSeconds(current_date.getSeconds() + 1);
+
+        if (current_date.valueOf() > start_date.valueOf()) {
+          window.setTimeout(function () {
+            window.location.reload(true);
+          }, 5000);
+        }
+      }, 1000);
+    };
+
+    </script>
+  <% end %>
+  <div class="itemVideoEmbedded">
+    <div id='player-area'>
+      <% if @media.overlay.present? %>
+          <p align="center"><a href="<%= @media.overlay_link %>" target="_blank">
+          <img src="<%= @media.overlay %>" class="overlay">
+        </a></p>
+      <% end %>
+      <% if @media.file_url.nil? %>
+        <desc><%= @media.description.html_safe %></desc>
+      <% else %>
+        <% if @media.file_url.length > 0 %>
+          <%= render 'media/player', media: @media %>
+        <% else %>
+          <%= @media.description.html_safe %>
+        <% end %>
+      <% end %>
+    </div>
+    <% if @mobile %>
+      <a href="?flash">Switch to Flash player</a>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+<%= render 'media/purchase_modal' %>

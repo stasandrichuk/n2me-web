@@ -1,0 +1,63 @@
+<div class="container" id="user_profile">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="md-card">
+      <div class="user_heading">
+        <div class="user_heading_avatar">
+          <%= render :partial => 'users/registrations/profile/avatar' %>
+        </div>
+        <div class="user_heading_content">
+          <h3 class="heading_b uk-margin-bottom">
+            <span class="uk-text-truncate">
+            Welcome 
+            <%= current_user.display_name %>
+            </span>
+          </h3>
+        </div>
+        <a class="md-fab md-fab-small md-fab-accent"
+           href="<%= edit_user_registration_path %>">
+           <i class="material-icons">
+             
+           </i>
+        </a>
+      </div>
+      <div class="user_content">
+        <ul class="uk-tab nav nav-tabs" id="user_profile_tabs">
+          <li class="uk-active active">
+            <a href="#about">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#subscription">
+              Subscriptions
+            </a>
+          </li>
+          <li>
+            <a href="#favorites">
+              Favorites
+            </a>
+          </li>
+          <li>
+            <a href="#recently-watched">
+              Recently Watched
+            </a>
+          </li>
+        </ul>
+        <div id="user_profile_tabs_content" class="tab-content">
+          <div class="uk-switcher uk-margin tab-pane active" id="about">
+            <%= render :partial => 'users/registrations/profile/about' %>
+          </div>
+          <div class="uk-switcher uk-margin tab-pane" id="subscription">
+            <%= render :partial => 'users/registrations/profile/subscription' %>
+          </div>
+          <div class="uk-switcher uk-margin tab-pane" id="favorites">
+            <%= render :partial => 'users/registrations/profile/favorites' %>
+          </div>
+          <div class="uk-switcher uk-margin tab-pane" id="recently-watched">
+            <%= render :partial => 'users/registrations/profile/recently_watched' %>
+          </dov>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

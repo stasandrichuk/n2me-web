@@ -1,0 +1,27 @@
+.fb-login.text-center= link_to image_tag("fb.png", class: 'social-login-btn'), "/auth/facebook", class: 'social-login-btn'
+
+.twitter-login.text-center= link_to image_tag("twitter.png", class: 'social-login-btn'), "/auth/twitter", class: 'social-login-btn'
+OR
+h2 Sign up
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  .uk-form-row
+    = f.label :name
+    = f.text_field :name, class: 'md-input'
+
+  .uk-form-row
+    = f.label :email
+    = f.email_field :email, class: 'md-input'
+
+  .uk-form-row
+    = f.label :password, "Password (#{@minimum_password_length} characters minimum)"
+    = f.password_field :password, autocomplete: 'off', class: 'md-input'
+
+  .uk-form-row
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, autocomplete: 'off', class: 'md-input'
+
+  .uk-margin-medium-top
+    = f.submit 'Sign up', class: 'md-btn md-btn-primary md-btn-block md-btn-large'

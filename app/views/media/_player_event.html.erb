@@ -1,0 +1,29 @@
+<% if @mobile %>
+  <video width="100%" height="300" controls autoplay="autoplay">
+    <source src="<%= event.stream_url %>" type="application/x-mpegURL">
+  </video>
+<% else %>
+  <div id="video-player<%= media.number %>"></div>
+  <script type='text/javascript'>
+    window.player = jwplayer("video-player<%= media.number %>").setup({
+        playlist: [{
+        image: '<%= media.thumbnail_url %>',
+        title: '<%= event.title %>',
+        sources: [
+           {
+                  file: "<%= event.stream_url %>"
+            }
+           ]
+        }],
+        image: '<%= media.thumbnail_url %>',
+        title: '<%= event.title %>',
+        width: '100%',
+        aspectratio: '16:9',
+        ga: '{}',
+        sharing: '{}',
+        androidhls: true,
+        autostart: true,
+        repeat: false
+    });
+  </script>
+<% end %>

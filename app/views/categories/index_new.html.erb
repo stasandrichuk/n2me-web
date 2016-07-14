@@ -1,0 +1,64 @@
+<div class="category-container">
+    <!--Outer Holder Start-->
+    <% @categories.each do |cat| %>
+      <% next unless cat.media.where(:language => current_language ).any? %>
+        <div class="cp-outer-holder cp-featured-video cp-comedy-video">
+          <div class="row">
+            <div class="col-md-12 cp-heading-outer">
+              <h2><%= cat.title %></h2>
+              <ul class="cp-listed">
+                  <li class="view-all"><a href="/categories/<%= cat.number %>">View All</a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+          <div class="videos-list uk-slidenav-position">
+          
+            <div class="row">
+              <div class="row__inner">
+                <% cat.media.where(:language => current_language ).each do |m| %>
+                  <div class="tile">
+                    <div class="tile__media">
+                      <% if m.thumbnail_url.present? %>
+                        <img alt="" src="<%= m.thumbnail_url %>" class="tile__img">
+                      <% else %>
+                        <img src="<%= asset_path('movie-placeholder.jpg') %>') %>" class="tile__img">
+                      <% end %>
+                    </div>
+                    <div class="tile__details">
+                      <div class="tile__title">
+                        <figcaption class="cp-caption">
+                          <a href="/media/<%= m.number %>" class="play-video">Play</a>
+                        </figcaption>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <a href="" class="previous uk-slidenav uk-slidenav-contrast uk-slidenav-previous"></a>
+              <a href="" class="next uk-slidenav uk-slidenav-contrast uk-slidenav-next"></a>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <!--Outer Holder End-->
+</div>
+<% if session[:show_trial] %>
+  <%= render :partial => "categories/free_trial_modal"%>
+  <%= content_for :javascript do %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#free-trial').modal('show')
+      });
+    </script>
+  <% end %>
+  <% session[:show_trial] = nil %>
+<% end %>
+
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var slider = new Slider()
+    });
+  </script>
+<% end %>

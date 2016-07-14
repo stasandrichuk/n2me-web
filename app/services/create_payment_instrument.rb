@@ -1,0 +1,2 @@
+class CreatePaymentInstrument
+end

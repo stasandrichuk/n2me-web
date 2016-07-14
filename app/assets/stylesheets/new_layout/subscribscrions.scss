@@ -1,0 +1,61 @@
+.new-subscription {
+  .sub-panel {
+    background-color: #fff;
+  }
+  .header {
+    background-color: #E1E4E9;
+    padding: 20px;
+    h3 {
+      margin: 0;
+      color: #414850;
+    }
+  }
+  .main {
+    padding: 20px;
+  }
+  .red {
+    color: red;
+  }
+  .field {
+    width: 100%;
+    padding: 3px 5px;
+    border: 1px solid #D5D7D7;
+
+    border-radius: 2px;
+    height: 42px;
+    display: table;
+    > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .field-label {
+      color: #B7B7B7;
+      margin-right: 5px;
+    }
+    input {
+      color: #B7D86F;
+      // border: 1px solid green;
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 8px;
+      border-radius: 2px;
+    }
+  }
+  .form-row + .form-row {
+    margin-top: 10px;
+  }
+  .remember-checkbox {
+    padding-top: 8px;
+  }
+  .checkout-btn {
+    background-color: #B7D86F;
+    border-color: #9CBB5F;
+    color: #fff;
+  }
+  .with-error {
+    border-color: red !important;
+  }
+  .spinner {
+    font-size: 18px;
+  }
+}

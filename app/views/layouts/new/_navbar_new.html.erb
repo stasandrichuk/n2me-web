@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default navbar-fixed-top affix-top" role="navigation">
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="<%= current_user ? categories_path : root_path %>">
+        <img class="brand-logo" src="/img/logo-white.png">
+      </a>  
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-ex1-collapse">
+      <ul class="nav navbar-nav main-menu">
+        <% if current_user %>
+          <li><a href="/categories/1422405890">Live TV</a></li>
+          <li><a href="/categories/1423429519">Movies</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/categories/1422405926">Games</a></li>
+          <li><a href="/music">Music</a></li>
+          <li><a href="<%= ebooks_path %>">E-Books</a></li>
+          <li><a href="/categories/1422405886">International</a></li>
+            <li><a href="https://chat.n2me.tv">MeChat</a></li>
+        <% else %>
+          <li>
+            <a class="page-scroll" href="#content">Streaming Content</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#pricing">Pricing</a>
+          </li>
+          <li>
+            <a class="page-scroll live-preview" href="#portfolio">Live Preview</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#contact">Contact</a>
+          </li>
+
+        <% end %>
+      </ul>
+        
+      <ul class="nav navbar-nav navbar-right logged-in-box">
+        <% if current_user %>
+          <li>
+            <form class="navbar-form" id="searchbar" action="<%= search_path %>" method="GET">
+              <div class="form-group">
+                <div class="input-group" id="navbar-search">
+                  <input class="form-control" placeholder="Search..." autocomplete="off" name="q" type="search" value="<%= params[:q] %>">
+                </div>
+              </div>
+            </form>
+          </li>
+        <% end%>
+        <% unless current_user %>
+          <li><a href="<%= new_user_registration_path %>">Register</a></li>
+          <li><a href="<%= new_user_session_path %>">Login</a></li>
+        <% else %>
+          <li class="dropdown logged-in-box">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+              <img class="avatar" alt="user avatar" src="<%= current_user.avatar_url %>" />
+              <%= current_user.short_name %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/profile">Profile</a></li>
+              <li><a href="/products">Products</a></li>
+              <li><%= link_to "Live TV Guide", schedule_path, class: "go-to" %></li>
+              <li><a href="<%= destroy_user_session_path %>"> Logout</a></li>
+            </ul>
+          </li>
+          <li class='live-tv'><%= link_to "Live TV Guide", schedule_path, class: "go-to btn btn-danger" %></li>
+        <% end %>
+      </ul>
+    </div>
+</nav>
+
+
+<%= form_tag("/schedule", method: "post", class: "get-location") do %>
+  <input type="hidden" name="utc_offset" id="utc_offset" />
+  <input type="hidden" name="now" id="now"></input>
+<% end %>
+
+
+
+

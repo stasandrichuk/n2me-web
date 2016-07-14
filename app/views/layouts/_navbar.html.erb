@@ -1,0 +1,194 @@
+<!--Header Start-->
+<header class="cp_header">
+  <!--Navigation Start-->
+  <div class="cp-navigation-row">
+    <!--Side Bar Menu Start-->
+    <div id="cp_side-menu"> <span id="cp-close-btn"><a href="#"><i class="fa fa-times"></i></a></span>
+      <div class="cp_side-navigation">
+        <ul class="cp-social-links">
+
+          <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+          <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+          <li><a href="#"><i class="fa fa-rss"></i></a></li>
+        </ul>
+        <div class="cp-right-outer">
+          <ul class="navbar-nav">
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Browse Media<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Live TV</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#">E-Books</a></li>
+                <li><a href="#">International</a></li>
+              </ul>
+            </li>
+
+            
+            <li><a href="#">Live TV Guide</a> </li>
+          </ul>
+          <%= form_tag search_path, :method => :get, :class => 'cp-search-form-outer' do %>
+            <div class="cp-search-form-outer">
+              <input type="text" name="query" placeholder="Search..." required>
+              <button class="btn-submit" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+            <label>... or refine by category.</label>
+          <% end %>
+          <div class="cp-upload-outer"> <a href="#" class="file-btn">My Account</a>
+            <ul class="cp-listed">
+              <li class="login-btn"><i class="fa fa-sign-in"></i> <a href="login.html">Log in</a></li>
+              <li class="signup-btn"><a href="register.html">Sign Up</a> <i class="fa fa-cart-plus"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Side Bar Menu End-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <!--Sidebar Menu Button -->
+          <div id="cp_side-menu-btn" class="cp_side-menu"> <a href="javascript:void(0)" class=""><i class="fa fa-bars"></i></a> </div>
+          <!--Sidebar Menu Button End-->
+
+          <!--Logo Start-->
+          <strong class="cp-logo"> <a href="/"><img src="<%= asset_path('new_layout/cp-logo1.png') %>" alt=""></a> </strong>
+          <!--Logo End-->
+          <!--Nav Holder Start-->
+          <div class="cp-nav-holder">
+            <div class="cp-megamenu">
+              <div class="cp-mega-menu">
+                <label for="mobile-button"> <img src="<%= asset_path('new_layout/menu-bar.png') %>" alt=""> </label>
+                <!-- mobile click button to show menu -->
+                <input id="mobile-button" type="checkbox">
+                <ul class="main-menu">
+                  <li><a href="#">Home</a></li>
+                  <li> <a href="#" id="browselink">Browse Media</a>
+                    <ul class="drop-down full-width col-5 hover-expand" id="browsedropdown">
+                      <li>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="#"><img src="<%= asset_path('new_layout/cat-livetv.png') %>" alt=""></a> </div>
+                          <a href="#">Live TV</a> </div>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="#"><img src="<%= asset_path('new_layout/cat-events.png') %>" alt=""></a> </div>
+                          <a href="category-edu.html">Events</a> </div>
+                      </li>
+                      <li>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="#"><img src="<%= asset_path('new_layout/cat-games.png') %>"></a> </div>
+                          <a href="#">Gaming</a> </div>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="#"><img src="<%= asset_path('new_layout/cat-music.png') %>"></a> </div>
+                          <a href="#">Music</a> </div>
+                      </li>
+                      <li>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="#"><img src="<%= asset_path('new_layout/cat-movies.png') %>"></a> </div>
+                          <a href="#">Movies</a> </div>
+                        <div class="cp-categorie-item">
+                          <div class="cp-img"> <a href="#"><img src="<%= asset_path('new_layout/cat-international.png') %>"></a> </div>
+                          <a href="category-food.html">International</a> </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li> <a href="#s">My Subscription</a></li>
+                  <li> <a href="#" id="watchlistlink">My Watch List</a>
+                    <ul class="drop-down full-width col-4 hover-expand" id="watchlistdropdown">
+                      <li>
+                        <!-- Video Item Start-->
+                        <div class="cp-video-item">
+                          <figure class="cp-thumb"> <img src="<%= asset_path('new_layout/mega-img-01.jpg') %>">
+                            <figcaption class="cp-caption"> <a href="video.html" class="play-video">Play</a> </figcaption>
+                          </figure>
+                          <div class="cp-text">
+                            <h4><a href="video.html">International</a></h4>
+                            <ul class="cp-meta-list">
+                              <li>Monday, Jan 26, 2016</li>
+                              <li>by Jiana Smith, <span>160 Views</span></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- Video Item End-->
+                      </li>
+                      <li>
+                        <!-- Video Item Start-->
+                        <div class="cp-video-item">
+                          <figure class="cp-thumb"> <img src="<%= asset_path('new_layout/mega-img-02.jpg') %>">
+                            <figcaption class="cp-caption"> <a href="video.html" class="play-video">Play</a> </figcaption>
+                          </figure>
+                          <div class="cp-text">
+                            <h4><a href="video.html">Category Title</a></h4>
+                            <ul class="cp-meta-list">
+                              <li>Monday, Jan 30, 2016</li>
+                              <li>by Bard, <span>260 Views</span></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- Video Item End-->
+                      </li>
+                      <li>
+                        <!-- Video Item Start-->
+                        <div class="cp-video-item">
+                          <figure class="cp-thumb"> <img src="<%= asset_path('new_layout/mega-img-03.jpg') %>">
+                            <figcaption class="cp-caption"> <a href="video.html" class="play-video">Play</a> </figcaption>
+                          </figure>
+                          <div class="cp-text">
+                            <h4><a href="video.html">Category Title</a></h4>
+                            <ul class="cp-meta-list">
+                              <li>Monday, Feb 10, 2016</li>
+                              <li>by John Doe, <span>310 Views</span></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- Item Holder End-->
+                      </li>
+                      <li>
+                        <!-- Video Item Start-->
+                        <div class="cp-video-item">
+                          <figure class="cp-thumb"> <img src="<%= asset_path('new_layout/mega-img-04.jpg') %>">
+                            <figcaption class="cp-caption"> <a href="video.html" class="play-video">Play</a> </figcaption>
+                          </figure>
+                          <div class="cp-text">
+                            <h4><a href="video.html">Category Title</a></h4>
+                            <ul class="cp-meta-list">
+                              <li>Monday, Feb 20, 2016</li>
+                              <li>by Jerif, <span>432 Views</span></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- Video Item End-->
+                      </li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--Nav Holder End-->
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <!--Right Holder Start-->
+          <div class="cp-right-holder"> <a href="#" class="file-btn">Live TV Guide</a>
+            <ul class="cp-social-links">
+
+              <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+              <li><a href="#"><i class="fa fa-film"></i></a></li>
+              <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+              <li class="cp-search-holder"><i class="fa fa-search"></i>
+                <%= form_tag search_path, :method => :get, :class => 'cp-search-form-outer' do %>
+                  <input type="text" placeholder="Search..." name="query" required>
+                  <button class="btn-submit" type="submit"><i class="fa fa-search"></i></button>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <!--Right Holder End-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Navigation End-->
+</header>
+<!--Header End-->
